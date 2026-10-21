@@ -19,7 +19,6 @@ import { products as localProducts } from '../data/products';
 import { brands as localBrands } from '../data/brands';
 import { milestones as localMilestones } from '../data/milestones';
 import {
-  heroStats as localHeroStats,
   capacityStats as localCapacityStats,
   qualityStats as localQualityStats,
 } from '../data/stats';
@@ -57,15 +56,6 @@ export async function getBrands(): Promise<Brand[]> {
 export async function getMilestones(): Promise<Milestone[]> {
   // TODO: Replace with Strapi fetch when ready
   return localMilestones;
-}
-
-/**
- * Get hero section stats (homepage)
- * @returns Array of stat cards for hero section
- */
-export async function getHeroStats() {
-  // TODO: Replace with Strapi fetch when ready
-  return localHeroStats;
 }
 
 /**

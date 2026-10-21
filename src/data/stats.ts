@@ -4,11 +4,6 @@ export interface Stat {
   dark?: boolean;
 }
 
-export const heroStats: Stat[] = [
-  { value: '30,000', label: 'Tons / month capacity' },
-  { value: '360,000', label: 'Tons / year capacity', dark: true },
-];
-
 export const capacityStats: Stat[] = [
   { value: '1,500', label: 'Tons / month aquafeed plant' },
   { value: '10,000', label: 'Tons new silo storage', dark: true },
