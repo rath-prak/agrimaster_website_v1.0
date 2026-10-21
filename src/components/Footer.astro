@@ -1,0 +1,59 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="footer">
+  <div class="wrap fgrid">
+    <div>
+      <a href={base}
+        ><img
+          src={`${base}assets/logo-white-badge.svg`}
+          alt="Agri Master – Animal Nutrition"
+          width="210"
+          height="66"
+        /></a
+      >
+      <p class="fblurb">
+        Locally owned animal nutrition since 2004. Complete swine, poultry, ruminant and
+        aquaculture feed. Part of Medivet Cambodia.
+      </p>
+      <ul class="social">
+        <li><a href="#" aria-label="Facebook (link to be added)">f</a></li>
+        <li><a href="#" aria-label="Telegram (link to be added)">tg</a></li>
+        <li><a href="#" aria-label="YouTube (link to be added)">yt</a></li>
+      </ul>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="fh">Company</h2>
+      <ul>
+        <li><a href={`${base}about`}>About us</a></li>
+        <li><a href={`${base}about#quality`}>Quality &amp; capacity</a></li>
+        <li><a href={`${base}contact`}>Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2 class="fh">Products</h2>
+      <ul>
+        <li><a href={`${base}products#swine`}>Swine feed</a></li>
+        <li><a href={`${base}products#poultry`}>Poultry feed</a></li>
+        <li><a href={`${base}products#ruminant`}>Ruminant feed</a></li>
+        <li><a href={`${base}products#aquaculture`}>Aquaculture feed</a></li>
+      </ul>
+    </div>
+    <address>
+      <h2 class="fh">Contact</h2>
+      <p>Feed mill: Kandal Province, near Phnom Penh, Cambodia</p>
+      <p>Phone: <span class="todo">[to be provided]</span></p>
+      <p>Email: <span class="todo">[to be provided]</span></p>
+      <p><a href="https://agrimaster.com.kh">agrimaster.com.kh</a></p>
+    </address>
+  </div>
+  <div class="wrap fbottom">
+    <span>© 2026 Agri Master Cambodia. All rights reserved.</span><span class="credit"
+      >Hero photo: "Cambodia's rice fields" by Dmitry A. Mottl, <a
+        href="https://commons.wikimedia.org/wiki/File:Cambodia%27s_rice_fields.jpg"
+        >Wikimedia Commons</a
+      >, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></span
+    >
+  </div>
+</footer>

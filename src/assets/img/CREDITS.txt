@@ -1,7 +1,0 @@
-Image credits
-- hero-rice-field.jpg: "Cambodia's rice fields" near Siem Reap by Dmitry A. Mottl, Wikimedia Commons,
-  CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Resized and compressed.
-  https://commons.wikimedia.org/wiki/File:Cambodia%27s_rice_fields.jpg
-- feedmill*.jpg, production-line.jpg, swine.jpg, poultry.jpg, ruminant.jpg, aquaculture.jpg,
-  raw-materials-corn.jpg: extracted from the Agri Master Cambodia Company Overview PDF (v.2026).
-  Some of these (animals, corn) may themselves be stock images; confirm licences with the client.

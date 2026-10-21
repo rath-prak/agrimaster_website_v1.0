@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import StatCard from '../components/StatCard.astro';
+import Timeline from '../components/Timeline.astro';
+import BrandGrid from '../components/BrandGrid.astro';
+import CTA from '../components/CTA.astro';
+import { getProducts, getHeroStats, getCapacityStats } from '../lib/products';
+
+const products = await getProducts();
+const heroStats = await getHeroStats();
+const capacityStats = await getCapacityStats();
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Animal Nutrition"
+  description="Agri Master Cambodia – locally owned feedmill producing swine, poultry, ruminant and aquaculture feed since 2004."
+  pageClass="index"
+>
+  <Header currentPage="index" />
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-img">
+        <div class="hero-content">
+          <p class="eyebrow light">Agri Master Cambodia · Animal Nutrition</p>
+          <h1>Feeding Cambodia's farms <span class="accent-l">since 2004</span></h1>
+          <div class="hero-row">
+            <div class="stats">
+              {heroStats.map((stat) => <StatCard {...stat} />)}
+            </div>
+            <p class="hero-copy">
+              One of Cambodia's first locally owned feedmills, producing complete swine, poultry,
+              ruminant and aquaculture feed.
+            </p>
+            <a class="btn btn-light" href={`${base}products`}>Explore our feeds →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section center wrap">
+      <p class="eyebrow">About Agri Master</p>
+      <h2>
+        Cambodian-owned <span class="accent">animal nutrition</span><br />built for local farmers
+      </h2>
+      <p class="lead">
+        Established in 2004 as part of Medivet Cambodia, Agri Master serves all major segments of
+        Cambodia's animal feed sector — and was the first Cambodian company to commercially produce
+        floating fish feed.
+      </p>
+      <a class="btn btn-outline" href={`${base}about`}>Our story</a>
+    </section>
+    <section class="wrap section pt0">
+      <div class="sec-head row">
+        <div>
+          <p class="eyebrow">Our products</p>
+          <h2>Complete feed in <span class="accent">pellet &amp; mash</span></h2>
+        </div>
+        <a class="link" href={`${base}products`}>All products →</a>
+      </div>
+      <div class="grid4">
+        {products.map((product) => <ProductCard product={product} />)}
+      </div>
+    </section>
+    <section class="wrap">
+      <div class="band" style={`background-image:url(${base}assets/img/feedmill-aerial.jpg)`}>
+        <div class="band-text">
+          <p class="eyebrow light">Production capacity</p>
+          <h2>Scalable infrastructure in Kandal Province</h2>
+        </div>
+        <div class="band-stats">
+          {capacityStats.map((stat) => <StatCard {...stat} />)}
+        </div>
+      </div>
+    </section>
+    <section class="section center wrap mission">
+      <p>
+        We prioritise <span class="hl"
+          >local raw materials — corn, cassava and rice by-products</span
+        > — combined with quality imports, and <span class="hl">test every batch</span> in-house for
+        nutritional value, safety and consistency.
+      </p>
+    </section>
+    <section class="wrap section pt0">
+      <div class="sec-head">
+        <p class="eyebrow">Milestones</p>
+        <h2>Two decades of <span class="accent">growth</span></h2>
+      </div>
+      <Timeline />
+    </section>
+    <section class="wrap section pt0">
+      <div class="sec-head row">
+        <div>
+          <p class="eyebrow">Our brands</p>
+          <h2>Tailored to <span class="accent">every region</span></h2>
+        </div>
+        <a class="link" href={`${base}products#brands`}>View brands →</a>
+      </div>
+      <BrandGrid />
+    </section>
+    <section class="wrap section pt0">
+      <div class="sec-head">
+        <p class="eyebrow">Why Agri Master</p>
+        <h2>Why farmers <span class="accent">choose us</span></h2>
+      </div>
+      <div class="grid4 why">
+        <div>
+          <span class="dot d1"></span>
+          <h3>Locally owned</h3>
+          <p>
+            Among Cambodia's first locally owned feedmills, serving the domestic market since 2004.
+          </p>
+        </div>
+        <div>
+          <span class="dot d2"></span>
+          <h3>Aquafeed pioneers</h3>
+          <p>First Cambodian company to commercially produce floating fish feed.</p>
+        </div>
+        <div>
+          <span class="dot d3"></span>
+          <h3>Quality at every stage</h3>
+          <p>
+            Raw material inspection, production monitoring, lab analysis and finished product checks.
+          </p>
+        </div>
+        <div>
+          <span class="dot d4"></span>
+          <h3>Scalable capacity</h3>
+          <p>30,000 tons per month at full operation, with room to grow with demand.</p>
+        </div>
+      </div>
+    </section>
+    <CTA />
+  </main>
+  <Footer />
+</Layout>

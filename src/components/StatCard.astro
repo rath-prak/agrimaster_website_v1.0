@@ -1,0 +1,13 @@
+---
+export interface Props {
+  value: string;
+  label: string;
+  dark?: boolean;
+}
+
+const { value, label, dark = false } = Astro.props;
+---
+
+<div class:list={['stat', { dark }]}>
+  <b>{value}</b><small set:html={label} />
+</div>

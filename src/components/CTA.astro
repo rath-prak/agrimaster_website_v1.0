@@ -1,0 +1,21 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Looking for a <span class="accent">reliable feed partner?</span>',
+  description = 'Talk to our team about the right feed line for your farm or distribution business.',
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="wrap">
+  <div class="cta">
+    <h2 set:html={title} />
+    <p set:html={description} />
+    <a class="btn btn-light" href={`${base}contact`}>Contact us</a>
+  </div>
+</section>

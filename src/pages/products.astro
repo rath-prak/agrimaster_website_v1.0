@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import BrandGrid from '../components/BrandGrid.astro';
+import CTA from '../components/CTA.astro';
+import { getProducts } from '../lib/products';
+
+const products = await getProducts();
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Products"
+  description="Swine, poultry, ruminant and aquaculture feed and our six brands."
+  pageClass="products"
+>
+  <Header currentPage="products" />
+  <main id="main">
+    <Hero
+      eyebrow="Our products"
+      title="Complete feed for every stage"
+      lead="Agri Master Cambodia produces complete feed in both pellet and mash form for a wide range of livestock and aquaculture."
+      image="poultry.jpg"
+      isPageHero={true}
+    />
+    <section class="wrap section">
+      {
+        products.map((product, index) => (
+          <article id={product.id} class:list={['prod', { rev: index % 2 === 1 }]}>
+            <img
+              src={`${base}assets/img/${product.image}`}
+              alt={`${product.name} – Agri Master feed`}
+              loading="lazy"
+            />
+            <div>
+              <p class="eyebrow">Feed line 0{index + 1}</p>
+              <h2>
+                {product.name} <span class="accent">feed</span>
+              </h2>
+              <p class="lead l">{product.description}</p>
+              <ul class="ticks">
+                {product.features.map((feature) => (
+                  <li set:html={feature} />
+                ))}
+              </ul>
+              <p class="muted small">
+                Available as complete feed in pellet and mash form across all six Agri Master
+                brands.
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+    <section id="brands" class="wrap section pt0">
+      <div class="sec-head center">
+        <p class="eyebrow">Agri Master brands</p>
+        <h2>
+          A portfolio of <span class="accent">high-quality</span> feed brands
+        </h2>
+        <p class="lead">
+          Each brand line is tailored to the specific needs of farmers in different regional markets
+          across Cambodia. All brands offer complete feed lines for swine, poultry, ruminants and
+          aquaculture.
+        </p>
+      </div>
+      <BrandGrid />
+      <p class="muted small center mt">
+        Brand logos / packaging shots: <span class="todo">to be provided</span>
+      </p>
+    </section>
+    <CTA
+      title='Need help choosing a <span class="accent">feed line?</span>'
+      description="Our team can recommend the right brand and formulation for your animals and region."
+    />
+  </main>
+  <Footer />
+</Layout>

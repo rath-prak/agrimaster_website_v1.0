@@ -1,0 +1,42 @@
+{
+  "name": "agrimaster-website",
+  "version": "1.0.0",
+  "description": "Agri Master Cambodia - Official website for locally owned animal nutrition since 2004",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "astro": "^5.0.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^1.1.1",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rath-prak/agrimaster_website_v1.0"
+  },
+  "keywords": [
+    "agriculture",
+    "animal-feed",
+    "cambodia",
+    "feedmill",
+    "static-site",
+    "astro"
+  ],
+  "author": "Agri Master Cambodia",
+  "license": "UNLICENSED",
+  "private": true
+}

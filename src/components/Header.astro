@@ -1,0 +1,58 @@
+---
+export interface Props {
+  currentPage?: 'index' | 'about' | 'products' | 'contact';
+}
+
+const { currentPage } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const navItems = [
+  { href: `${base}`, label: 'Home', page: 'index' },
+  { href: `${base}about`, label: 'About', page: 'about' },
+  { href: `${base}products`, label: 'Products', page: 'products' },
+  { href: `${base}contact`, label: 'Contact', page: 'contact' },
+];
+---
+
+<header class="site-header">
+  <div class="nav wrap">
+    <a class="logo" href={base}
+      ><img
+        src={`${base}assets/logo.svg`}
+        alt="Agri Master – Animal Nutrition"
+        width="190"
+        height="57"
+      /></a
+    >
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"
+      ><span></span><span></span><span></span></button
+    >
+    <nav id="menu" aria-label="Main">
+      <ul>
+        {
+          navItems.map(({ href, label, page }) => (
+            <li>
+              <a href={href} aria-current={currentPage === page ? 'page' : undefined}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="btn btn-primary btn-sm nav-cta" href={`${base}contact`}>Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.querySelector('.menu-btn');
+  const header = document.querySelector('.site-header');
+
+  if (menuButton && header) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+  }
+</script>

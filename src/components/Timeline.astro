@@ -1,0 +1,14 @@
+---
+import { milestones } from '../data/milestones';
+---
+
+<ol class="timeline">
+  {
+    milestones.map((milestone) => (
+      <li>
+        <b>{milestone.year}</b>
+        <p>{milestone.description}</p>
+      </li>
+    ))
+  }
+</ol>

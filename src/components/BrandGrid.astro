@@ -1,0 +1,7 @@
+---
+import { brands } from '../data/brands';
+---
+
+<ul class="brands">
+  {brands.map((brand) => <li class={brand.className}>{brand.name}</li>)}
+</ul>

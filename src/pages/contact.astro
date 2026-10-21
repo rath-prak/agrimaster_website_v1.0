@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Contact Agri Master Cambodia."
+  pageClass="contact"
+>
+  <Header currentPage="contact" />
+  <main id="main">
+    <Hero
+      eyebrow="Contact"
+      title="Let's talk feed"
+      lead="Get in touch with our team about products, brands and distribution across Cambodia."
+      image="feedmill.jpg"
+      isPageHero={true}
+    />
+    <section class="wrap section split top">
+      <form class="form" onsubmit="event.preventDefault();this.querySelector('.ok').hidden=false">
+        <h2>Send us a <span class="accent">message</span></h2>
+        <div class="frow">
+          <label>Full name<input name="name" required autocomplete="name" /></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
+        </div>
+        <div class="frow">
+          <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+          <label
+            >I'm interested in<select name="topic">
+              <option>Swine feed</option>
+              <option>Poultry feed</option>
+              <option>Ruminant feed</option>
+              <option>Aquaculture feed</option>
+              <option>Becoming a distributor</option>
+              <option>Other</option>
+            </select></label
+          >
+        </div>
+        <label>Message<textarea name="msg" rows="5" required></textarea></label>
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <p class="ok muted" hidden role="status">
+          Thank you — this is a demo form (not yet connected).
+        </p>
+      </form>
+      <aside class="cinfo">
+        <h2>Contact <span class="accent">details</span></h2>
+        <dl>
+          <dt>Feed mill</dt>
+          <dd>
+            Kandal Province, near Phnom Penh, Cambodia<br /><span class="todo"
+              >Full street address to be provided</span
+            >
+          </dd>
+          <dt>Phone</dt>
+          <dd><span class="todo">To be provided</span></dd>
+          <dt>Email</dt>
+          <dd><span class="todo">To be provided</span></dd>
+          <dt>Website</dt>
+          <dd><a href="https://agrimaster.com.kh">agrimaster.com.kh</a></dd>
+          <dt>Opening hours</dt>
+          <dd><span class="todo">To be provided</span></dd>
+        </dl>
+      </aside>
+    </section>
+    <section class="wrap section pt0">
+      <div class="map">
+        <iframe
+          title="Map of Kandal Province, Cambodia"
+          loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=104.70%2C11.30%2C105.20%2C11.70&amp;layer=mapnik"
+        ></iframe>
+        <p class="muted small">
+          <a href="https://www.openstreetmap.org/#map=11/11.48/104.95">Open larger map</a> · Map shows
+          Kandal Province. <span class="todo">Exact mill location pin to be provided.</span>
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
