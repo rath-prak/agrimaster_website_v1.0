@@ -1,10 +1,9 @@
 ---
 export interface Props {
   currentPage?: 'index' | 'about' | 'products' | 'contact';
-  overlay?: boolean;
 }
 
-const { currentPage, overlay = false } = Astro.props;
+const { currentPage } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 const navItems = [
@@ -15,11 +14,11 @@ const navItems = [
 ];
 ---
 
-<header class:list={['site-header', { overlay }]}>
+<header class="site-header">
   <div class="nav wrap">
     <a class="logo" href={base}
       ><img
-        src={`${base}assets/${overlay ? 'logo-white.svg' : 'logo.svg'}`}
+        src={`${base}assets/logo.svg`}
         alt="Agri Master – Animal Nutrition"
         width="190"
         height="57"
@@ -40,7 +39,7 @@ const navItems = [
           ))
         }
       </ul>
-      <a class="btn nav-cta" href={`${base}contact`}>Get in touch</a>
+      <a class="btn btn-primary btn-sm nav-cta" href={`${base}contact`}>Get in touch</a>
     </nav>
   </div>
 </header>

@@ -19,20 +19,19 @@ const base = import.meta.env.BASE_URL;
   description="Agri Master Cambodia – locally owned feedmill producing swine, poultry, ruminant and aquaculture feed since 2004."
   pageClass="index"
 >
-  <Header currentPage="index" overlay />
+  <Header currentPage="index" />
   <main id="main">
     <section class="hero full">
       <div class="hero-img" style={`--hero-img:url(${base}assets/img/hero-rice-field.jpg)`}>
         <div class="hero-content">
+          <p class="eyebrow light">agri master cambodia · animal nutrition</p>
           <h1>feeding cambodia's farms <span class="accent-l">since 2004</span></h1>
           <div class="hero-row">
             <p class="hero-copy">
               cambodia's first locally owned feedmills
               <span class="pill">PRODUCT OF CAMBODIA</span>
             </p>
-            <a class="hero-cta" href={`${base}products`}
-              ><span>explore our feeds</span><i aria-hidden="true">→</i></a
-            >
+            <a class="btn btn-light" href={`${base}products`}>explore our feeds →</a>
           </div>
         </div>
       </div>
