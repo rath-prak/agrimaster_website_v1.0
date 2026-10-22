@@ -7,7 +7,6 @@ export interface RawTile {
   title?: string;
   body?: string;
   tone?: 'grey' | 'lime';
-  icon?: string;
 }
 
 export const rawMaterials = {
@@ -25,7 +24,6 @@ export const rawMaterials = {
     {
       kind: 'text',
       tone: 'grey',
-      icon: 'icon-cambodia.svg',
       title: 'Supporting Cambodian Farmers',
       body: 'We prioritise purchasing locally grown corn, cassava, broken rice, and rice bran whenever available, supporting Cambodian farmers and the local agricultural economy.',
     },
@@ -33,7 +31,6 @@ export const rawMaterials = {
     {
       kind: 'text',
       tone: 'lime',
-      icon: 'icon-ship.svg',
       title: 'Supporting Cambodian Farmers',
       body: 'We prioritise purchasing locally grown corn, cassava, broken rice, and rice bran whenever available, supporting Cambodian farmers and the local agricultural economy.',
     },

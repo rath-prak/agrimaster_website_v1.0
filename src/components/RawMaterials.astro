@@ -39,9 +39,6 @@ const base = import.meta.env.BASE_URL;
         <div class:list={['rm-tile', 'text', t.tone]}>
           <h4>{t.title}</h4>
           <p>{t.body}</p>
-          {t.icon && (
-            <img class="rm-icon" src={`${base}assets/${t.icon}`} alt="" aria-hidden="true" />
-          )}
         </div>
       )
     )}
