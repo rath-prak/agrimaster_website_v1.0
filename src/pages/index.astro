@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard.astro';
 import StatCard from '../components/StatCard.astro';
 import Timeline from '../components/Timeline.astro';
 import BrandGrid from '../components/BrandGrid.astro';
-import CTA from '../components/CTA.astro';
+import RawMaterials from '../components/RawMaterials.astro';
 import { getProducts, getCapacityStats } from '../lib/products';
 
 const products = await getProducts();
@@ -96,39 +96,7 @@ const base = import.meta.env.BASE_URL;
       </div>
       <BrandGrid />
     </section>
-    <section class="wrap section pt0">
-      <div class="sec-head">
-        <p class="eyebrow">Why Agri Master</p>
-        <h2>Why farmers <span class="accent">choose us</span></h2>
-      </div>
-      <div class="grid4 why">
-        <div>
-          <span class="dot d1"></span>
-          <h3>Locally owned</h3>
-          <p>
-            Among Cambodia's first locally owned feedmills, serving the domestic market since 2004.
-          </p>
-        </div>
-        <div>
-          <span class="dot d2"></span>
-          <h3>Aquafeed pioneers</h3>
-          <p>First Cambodian company to commercially produce floating fish feed.</p>
-        </div>
-        <div>
-          <span class="dot d3"></span>
-          <h3>Quality at every stage</h3>
-          <p>
-            Raw material inspection, production monitoring, lab analysis and finished product checks.
-          </p>
-        </div>
-        <div>
-          <span class="dot d4"></span>
-          <h3>Scalable capacity</h3>
-          <p>30,000 tons per month at full operation, with room to grow with demand.</p>
-        </div>
-      </div>
-    </section>
-    <CTA />
+    <RawMaterials />
   </main>
   <Footer />
 </Layout>

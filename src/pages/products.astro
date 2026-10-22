@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import BrandGrid from '../components/BrandGrid.astro';
-import CTA from '../components/CTA.astro';
 import { getProducts } from '../lib/products';
 
 const products = await getProducts();
@@ -71,10 +70,6 @@ const base = import.meta.env.BASE_URL;
         Brand logos / packaging shots: <span class="todo">to be provided</span>
       </p>
     </section>
-    <CTA
-      title='Need help choosing a <span class="accent">feed line?</span>'
-      description="Our team can recommend the right brand and formulation for your animals and region."
-    />
   </main>
   <Footer />
 </Layout>

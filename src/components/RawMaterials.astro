@@ -1,0 +1,49 @@
+---
+import { rawMaterials as d } from '../data/rawMaterials';
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="rm wrap" id="raw-materials">
+  <div
+    class="rm-hero"
+    role="img"
+    aria-label={d.imageAlt}
+    style={`--rm-img:url(${base}assets/img/${d.image})`}
+  >
+    <h2>
+      {d.headline.map((line) => (
+        <span>{line}</span>
+      ))}
+      <span class="g">{d.headlineMuted}</span>
+    </h2>
+  </div>
+  <div class="rm-intro">
+    <div>
+      <span class="rm-pill">{d.pill}</span>
+      <h3>
+        {d.heading} <span>{d.headingMuted}</span>
+      </h3>
+    </div>
+    <div>
+      <p class="rm-lead">{d.lead}</p>
+      <p class="rm-small">{d.body}</p>
+    </div>
+  </div>
+  <div class="rm-tiles">
+    {d.tiles.map((t) =>
+      t.kind === 'image' ? (
+        <div class="rm-tile">
+          <img src={`${base}assets/img/${t.image}`} alt={t.alt} loading="lazy" />
+        </div>
+      ) : (
+        <div class:list={['rm-tile', 'text', t.tone]}>
+          <h4>{t.title}</h4>
+          <p>{t.body}</p>
+          {t.icon && (
+            <img class="rm-icon" src={`${base}assets/${t.icon}`} alt="" aria-hidden="true" />
+          )}
+        </div>
+      )
+    )}
+  </div>
+</section>
