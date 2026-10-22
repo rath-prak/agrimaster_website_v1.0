@@ -5,3 +5,7 @@ Image credits
 - feedmill*.jpg, production-line.jpg, swine.jpg, poultry.jpg, ruminant.jpg, aquaculture.jpg,
   raw-materials-corn.jpg: extracted from the Agri Master Cambodia Company Overview PDF (v.2026).
   Some of these (animals, corn) may themselves be stock images; confirm licences with the client.
+
+corn-hero.jpg — supplied by Agri Master (user-provided attachment), resized for web.
+farmer-field.jpg — "Khmer woman fields.jpg", original uploader Dara at English Wikipedia, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Khmer_woman_fields.jpg (resized)
+local-crops.jpg — "Cambodian Village Water Spinach Beds.jpg" by Sudzie, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Cambodian_Village_Water_Spinach_Beds.jpg (resized)
