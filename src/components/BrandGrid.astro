@@ -1,7 +1,12 @@
 ---
 import { brands } from '../data/brands';
+const base = import.meta.env.BASE_URL;
 ---
 
 <ul class="brands">
-  {brands.map((brand) => <li class={brand.className}>{brand.name}</li>)}
+  {brands.map((brand) => (
+    <li class={brand.className}>
+      <img src={`${base}assets/brands/${brand.logo}`} alt={brand.name} loading="lazy" />
+    </li>
+  ))}
 </ul>

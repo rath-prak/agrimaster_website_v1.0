@@ -105,14 +105,14 @@ const base = import.meta.env.BASE_URL;
       <Timeline />
     </section>
     <section class="wrap section pt0">
-      <div class="sec-head row">
-        <div>
-          <p class="eyebrow">Our brands</p>
-          <h2>Tailored to <span class="accent">every region</span></h2>
-        </div>
-        <a class="link" href={`${base}products#brands`}>View brands →</a>
+      <div class="sec-head brands-head">
+        <p class="eyebrow">Our brands</p>
+        <h2 class="lc">tailored to <span class="accent">every region</span></h2>
+        <p class="lead l">Every region of Cambodia farms a little differently. Our six feed brands give farmers and distributors a choice of formulations and price points, so the right nutrition is always within reach.</p>
+        <p class="lead l">From Master and Super to Echo, Vital, Golden and Diamond, each brand is produced at our Kandal feedmill to the same quality standards, using carefully selected local and imported ingredients.</p>
       </div>
       <BrandGrid />
+      <p class="brands-more"><a class="link" href={`${base}products#brands`}>View brands →</a></p>
     </section>
     <RawMaterials />
   </main>
