@@ -5,7 +5,8 @@ const spots = [FEEDMILL, ...availability].map((s) => ({ ...s, ...project(s.lat, 
 const active = new Set(spots.map((s) => s.province));
 ---
 
-<section class="wrap section pt0 amap" id="where-to-find-us">
+<div class="amap-band">
+<section class="wrap section amap" id="where-to-find-us">
   <div class="sec-head brands-head">
     <h2 class="brands-title">Where to find us</h2>
     <p class="muted amap-note">Tap a pin to see which brands are available. Locations shown are placeholders.</p>
@@ -43,6 +44,7 @@ const active = new Set(spots.map((s) => s.province));
     <li><span class="lg-mill"></span>Agri Master feedmill, Kandal</li>
   </ul>
 </section>
+</div>
 
 <script>
   document.querySelectorAll<HTMLElement>('.amap').forEach((root) => {

@@ -211,9 +211,10 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 @media(max-width:760px){.rm-hero{aspect-ratio:4/5;background-size:auto 133.334%;background-position:62% 0}}
 /* Availability map */
 .amap-note{margin-top:var(--s2);font-size:.95rem}
+.amap-band{background:#F1F2F0;margin-top:clamp(48px,6vw,96px)}
 .amap-stage{position:relative;max-width:900px;margin:0 auto}
 .amap svg{display:block;width:100%;height:auto;overflow:visible}
-.amap-prov path{fill:#e6e9e4;stroke:#fff;stroke-width:1.5;stroke-linejoin:round;transition:fill .15s}
+.amap-prov path{fill:#fff;stroke:#d5d9d3;stroke-width:1.5;stroke-linejoin:round;transition:fill .15s}
 .amap-prov path.on{fill:#d3e4d6}
 .amap-prov path.hl{fill:#9fc8a8}
 .amap .pin{cursor:pointer;outline:none}
@@ -238,3 +239,4 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .lg-pin{width:14px;height:14px;border-radius:50%;background:var(--green);border:2px solid #fff;box-shadow:0 0 0 1px var(--green)}
 .lg-mill{width:13px;height:13px;background:var(--amber);border:2px solid var(--green);transform:rotate(45deg);border-radius:2px}
 @media (max-width:640px){.amap .pin .core{r:11}.amap .pin .pulse{r:16}.amap-card{min-width:180px}}
+.amap-card[hidden],.amap-tip[hidden]{display:none!important}
