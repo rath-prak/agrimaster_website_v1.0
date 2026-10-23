@@ -1,0 +1,85 @@
+---
+import { provinces, project, MAP_W, MAP_H } from '../data/cambodiaProvinces';
+import { availability, FEEDMILL } from '../data/availability';
+const spots = [FEEDMILL, ...availability].map((s) => ({ ...s, ...project(s.lat, s.lng) }));
+const active = new Set(spots.map((s) => s.province));
+---
+
+<section class="wrap section pt0 amap" id="where-to-find-us">
+  <div class="sec-head brands-head">
+    <h2 class="brands-title">Where to find us</h2>
+    <p class="muted amap-note">Tap a pin to see which brands are available. Locations shown are placeholders.</p>
+  </div>
+  <div class="amap-stage">
+    <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="group" aria-label="Map of Cambodia showing where Agri Master feed is available">
+      <g class="amap-prov">
+        {provinces.map((p) => (
+          <path d={p.d} data-name={p.name} class={active.has(p.name) ? 'on' : ''}><title>{p.name}</title></path>
+        ))}
+      </g>
+      <g class="amap-pins">
+        {spots.map((s) => (
+          <g class={`pin ${s.kind === 'feedmill' ? 'mill' : ''}`} transform={`translate(${s.x.toFixed(1)} ${s.y.toFixed(1)})`}
+             tabindex="0" role="button" aria-haspopup="dialog"
+             aria-label={`${s.province}: ${s.label}. Brands: ${s.brands.join(', ')}`}
+             data-province={s.province} data-label={s.label} data-brands={s.brands.join(', ')}>
+            {s.kind === 'feedmill'
+              ? <><circle class="pulse" r="16" /><rect x="-11" y="-11" width="22" height="22" rx="4" transform="rotate(45)" /><circle class="dot" r="4" /></>
+              : <><circle class="pulse" r="12" /><circle class="core" r="8" /></>}
+          </g>
+        ))}
+      </g>
+    </svg>
+    <div class="amap-tip" hidden></div>
+    <div class="amap-card" role="dialog" aria-live="polite" hidden>
+      <button class="amap-x" type="button" aria-label="Close">×</button>
+      <strong class="amap-card-p"></strong>
+      <span class="amap-card-l"></span>
+      <span class="amap-card-b"></span>
+    </div>
+  </div>
+  <ul class="amap-legend">
+    <li><span class="lg-pin"></span>Distributor (placeholder)</li>
+    <li><span class="lg-mill"></span>Agri Master feedmill, Kandal</li>
+  </ul>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.amap').forEach((root) => {
+    const stage = root.querySelector<HTMLElement>('.amap-stage')!;
+    const tip = root.querySelector<HTMLElement>('.amap-tip')!;
+    const card = root.querySelector<HTMLElement>('.amap-card')!;
+    let openPin: SVGGElement | null = null;
+    const pos = (el: HTMLElement, cx: number, cy: number) => {
+      const r = stage.getBoundingClientRect();
+      const x = Math.min(Math.max(cx - r.left, 8), r.width - 8);
+      el.style.left = `${x}px`; el.style.top = `${cy - r.top}px`;
+      el.classList.toggle('flip-l', x > r.width - 120);
+      el.classList.toggle('flip-r', x < 120);
+    };
+    root.querySelectorAll<SVGPathElement>('.amap-prov path').forEach((p) => {
+      p.addEventListener('pointermove', (e) => { tip.textContent = p.dataset.name || ''; tip.hidden = false; pos(tip, e.clientX, e.clientY - 12); p.classList.add('hl'); });
+      p.addEventListener('pointerleave', () => { tip.hidden = true; p.classList.remove('hl'); });
+    });
+    const close = () => { card.hidden = true; openPin?.classList.remove('sel'); openPin?.setAttribute('aria-expanded', 'false'); openPin = null; };
+    const open = (g: SVGGElement) => {
+      if (openPin === g) return close();
+      close(); openPin = g; g.classList.add('sel'); g.setAttribute('aria-expanded', 'true');
+      card.querySelector('.amap-card-p')!.textContent = g.dataset.province || '';
+      card.querySelector('.amap-card-l')!.textContent = g.dataset.label || '';
+      card.querySelector('.amap-card-b')!.textContent = `Brands: ${g.dataset.brands}`;
+      card.hidden = false;
+      const b = g.getBoundingClientRect(); pos(card, b.left + b.width / 2, b.top);
+      root.querySelectorAll('.amap-prov path').forEach((p) => p.classList.toggle('hl', (p as SVGPathElement).dataset.name === g.dataset.province));
+    };
+    root.querySelectorAll<SVGGElement>('.pin').forEach((g) => {
+      g.addEventListener('click', (e) => { e.stopPropagation(); open(g); });
+      g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(g); } });
+      g.addEventListener('focus', () => { const p = root.querySelector<SVGPathElement>(`.amap-prov path[data-name="${g.dataset.province}"]`); p?.classList.add('hl'); });
+      g.addEventListener('blur', () => { if (openPin !== g) root.querySelectorAll('.amap-prov path.hl').forEach((p) => p.classList.remove('hl')); });
+    });
+    card.querySelector('.amap-x')!.addEventListener('click', () => { const g = openPin; close(); (g as unknown as HTMLElement)?.focus(); });
+    document.addEventListener('click', (e) => { if (!card.contains(e.target as Node)) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && openPin) { const g = openPin; close(); (g as unknown as HTMLElement).focus(); } });
+  });
+</script>

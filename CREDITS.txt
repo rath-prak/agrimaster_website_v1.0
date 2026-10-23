@@ -1,0 +1,10 @@
+Map data
+--------
+Cambodia province boundaries (ADM1): geoBoundaries gbOpen KHM ADM1 (release 9469f09),
+source OpenStreetMap / Wambacher. https://www.geoboundaries.org/
+Licence: Open Data Commons Open Database License (ODbL) 1.0
+https://opendatacommons.org/licenses/odbl/1-0/
+(c) OpenStreetMap contributors.
+Simplified (8%) with mapshaper and pre-projected to SVG in src/data/cambodiaProvinces.ts.
+
+Photo credits are listed in the site footer (src/components/Footer.astro).
