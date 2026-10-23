@@ -202,3 +202,6 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .card.pc h3{text-transform:none;letter-spacing:-.01em;color:#1a1d1b;font-size:clamp(1.15rem,1.8vw,1.65rem);font-weight:600;line-height:1.3;margin:clamp(14px,1.6vw,22px) 0 clamp(8px,1vw,12px)}
 .card.pc p{font-size:clamp(.85rem,1.3vw,1.17rem);line-height:1.36;font-weight:500;color:#2a2e2b}
 @media(max-width:760px){.card.pc .pc-img{height:260px}}
+/* corn hero: CSS crop of bottom 25% of original 2000x1172 image (keeps top 879px) */
+.rm-hero{aspect-ratio:2000/879;background-size:cover;background-position:center top}
+@media(max-width:760px){.rm-hero{aspect-ratio:4/5;background-size:auto 133.334%;background-position:62% 0}}
