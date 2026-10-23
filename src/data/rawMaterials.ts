@@ -31,8 +31,8 @@ export const rawMaterials = {
     {
       kind: 'text',
       tone: 'lime',
-      title: 'Supporting Cambodian Farmers',
-      body: 'We prioritise purchasing locally grown corn, cassava, broken rice, and rice bran whenever available, supporting Cambodian farmers and the local agricultural economy.',
+      title: 'High quality International suppliers',
+      body: 'We source high-quality raw materials from international suppliers, primarily in the United States, to complement local ingredients and support our animal nutrition formulations.',
     },
   ] as RawTile[],
 };

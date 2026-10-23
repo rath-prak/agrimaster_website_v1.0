@@ -9,15 +9,11 @@ const { product } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<article class="card">
+<article class="card pc">
   <a href={`${base}products#${product.id}`}>
-    <img
-      src={`${base}assets/img/${product.image}`}
-      alt={`${product.name} feed`}
-      loading="lazy"
-      width="1000"
-      height="646"
-    />
+    <div class="pc-img">
+      <img src={`${base}assets/img/${product.image}`} alt={`${product.name} feed`} loading="lazy" />
+    </div>
     <h3>{product.name}</h3>
   </a>
   <p>{product.description}</p>
