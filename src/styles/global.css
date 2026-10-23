@@ -240,3 +240,4 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .lg-mill{width:13px;height:13px;background:var(--amber);border:2px solid var(--green);transform:rotate(45deg);border-radius:2px}
 @media (max-width:640px){.amap .pin .core{r:11}.amap .pin .pulse{r:16}.amap-card{min-width:180px}}
 .amap-card[hidden],.amap-tip[hidden]{display:none!important}
+.rm-tile.grey{background:var(--green);color:#fff}.rm-tile.grey h4,.rm-tile.grey p{color:#fff}
