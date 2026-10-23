@@ -1,4 +1,4 @@
-:root{--navy:#2A3E92;--green:#226D37;--green2:#02753E;--lime:#76A227;--lime-l:#B6D96A;--amber:#FFB52A;--ink:#14201a;--mut:#56605a;--soft:#f2f5ef;--r:12px;--s1:8px;--s2:16px;--s3:24px;--s4:40px;--s5:64px;--s6:104px;--hh:84px;--container:1400px;--pad:24px}
+:root{--display-lh:1.1;--navy:#2A3E92;--green:#226D37;--green2:#02753E;--lime:#76A227;--lime-l:#B6D96A;--amber:#FFB52A;--ink:#14201a;--mut:#56605a;--soft:#f2f5ef;--r:12px;--s1:8px;--s2:16px;--s3:24px;--s4:40px;--s5:64px;--s6:104px;--hh:84px;--container:1400px;--pad:24px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{font-family:"Manrope","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
@@ -7,7 +7,7 @@ img{max-width:100%;display:block}a{color:inherit}ul,ol{list-style:none}
 .skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#000;color:#fff;padding:8px;z-index:99}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 .accent{color:var(--green)}.accent-l{color:var(--lime-l)}
-h1,h2{text-transform:uppercase;font-weight:800;letter-spacing:-.02em;line-height:1.02}
+h1,h2{text-transform:uppercase;font-weight:800;letter-spacing:-.02em;line-height:var(--display-lh)}
 h1{font-size:clamp(2.4rem,6vw,5.6rem)}h2{font-size:clamp(1.8rem,3.6vw,3.2rem)}
 h3{font-size:1.15rem;line-height:1.3;margin:var(--s2) 0 var(--s1)}
 .eyebrow{text-transform:uppercase;font-weight:700;font-size:.8rem;color:var(--green);margin-bottom:var(--s2);letter-spacing:.1em}
@@ -147,11 +147,11 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 /* raw materials */
 .rm{padding-top:var(--s6);padding-bottom:var(--s6)}
 .rm-hero{border-radius:12px;overflow:hidden;position:relative;aspect-ratio:16/9;max-height:640px;width:100%;background:var(--rm-img) center/cover}
-.rm-hero h2{position:absolute;top:var(--s4);left:var(--s4);right:var(--s4);text-transform:none;font-weight:700;letter-spacing:-.02em;line-height:1.18;font-size:clamp(1.5rem,3.2vw,2.9rem);color:#14201a}
+.rm-hero h2{position:absolute;top:var(--s4);left:var(--s4);right:var(--s4);text-transform:none;font-weight:700;letter-spacing:-.02em;line-height:var(--display-lh);font-size:clamp(1.5rem,3.2vw,2.9rem);color:#14201a}
 .rm-hero h2 span{display:block}.rm-hero h2 .g{color:#7d837f}
 .rm-intro{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);margin:var(--s5) 0}
 .rm-pill{display:inline-block;background:var(--lime);color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.04em;padding:9px 20px;border-radius:999px;margin-bottom:var(--s3)}
-.rm-intro h3{font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.3;font-weight:700;margin:0;max-width:560px;letter-spacing:-.01em}
+.rm-intro h3{font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:var(--display-lh);font-weight:700;margin:0;max-width:560px;letter-spacing:-.01em}
 .rm-intro h3 span,.rm-hero .g{color:#8a8f8b}
 .rm-lead{font-size:clamp(1.05rem,1.4vw,1.3rem);font-weight:600;line-height:1.45;margin-bottom:var(--s3)}
 .rm-small{font-size:.92rem;color:#3d4540}
@@ -165,9 +165,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 @media(max-width:760px){.rm{padding-top:var(--s5);padding-bottom:var(--s5)}.rm-hero{aspect-ratio:4/5}.rm-hero h2{top:var(--s3);left:var(--s3)}.rm-intro{grid-template-columns:1fr;gap:var(--s3);margin:var(--s4) 0}.rm-tiles{grid-template-columns:1fr}.rm-tile{min-height:260px}.rm-tile.text{min-height:0;padding-bottom:90px}}
 /* raw materials typography (measured from mockup) */
 .rm h2,.rm h3,.rm h4{text-transform:none;letter-spacing:-.01em;color:#1a1d1b}
-.rm-hero h2{font-size:clamp(1.5rem,3.2vw,2.9rem);font-weight:700;line-height:1.36;top:clamp(20px,3.3vw,48px);left:clamp(20px,2.6vw,38px)}
+.rm-hero h2{font-size:clamp(1.5rem,3.2vw,2.9rem);font-weight:700;line-height:var(--display-lh);top:clamp(20px,3.3vw,48px);left:clamp(20px,2.6vw,38px)}
 .rm-hero h2 .g,.rm-intro h3 span{color:#8a8a8a}
-.rm-intro h3{font-size:clamp(1.5rem,3.05vw,2.75rem);font-weight:600;line-height:1.38;max-width:600px}
+.rm-intro h3{font-size:clamp(1.5rem,3.05vw,2.75rem);font-weight:600;line-height:var(--display-lh);max-width:600px}
 .rm-pill{font-size:clamp(.72rem,1.05vw,.95rem);font-weight:700;padding:.7em 1.6em;margin-bottom:clamp(16px,2.6vw,38px)}
 .rm-lead{font-size:clamp(1.05rem,1.9vw,1.72rem);font-weight:600;line-height:1.33;color:#1a1d1b;margin-bottom:clamp(14px,1.7vw,24px)}
 .rm-small{font-size:clamp(.85rem,1.3vw,1.17rem);font-weight:500;line-height:1.38;color:#2a2e2b}

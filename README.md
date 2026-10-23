@@ -407,3 +407,7 @@ For business inquiries, visit the [Contact page](https://rath-prak.github.io/agr
 **Last updated:** October 2026  
 **Built with:** Astro 5.x + TypeScript  
 **Maintained by:** Agri Master Cambodia Development Team
+
+## Typography
+
+All hero headlines and large section headings (h1, h2, Raw Materials intro heading) use `line-height: var(--display-lh)` (1.1), set once in `src/styles/global.css`.
