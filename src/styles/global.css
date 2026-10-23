@@ -171,7 +171,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .rm-pill{font-size:clamp(.72rem,1.05vw,.95rem);font-weight:700;padding:.7em 1.6em;margin-bottom:clamp(16px,2.6vw,38px)}
 .rm-lead{font-size:clamp(1.05rem,1.9vw,1.72rem);font-weight:600;line-height:1.33;color:#1a1d1b;margin-bottom:clamp(14px,1.7vw,24px)}
 .rm-small{font-size:clamp(.85rem,1.3vw,1.17rem);font-weight:500;line-height:1.38;color:#2a2e2b}
-.rm-tile h4{font-size:clamp(1.15rem,1.8vw,1.65rem);font-weight:600;line-height:1.3;margin:0 0 clamp(12px,1.6vw,24px)}
+.rm-tile h4{font-size:clamp(1.15rem,1.8vw,1.65rem);font-weight:600;line-height:1.3;margin:0 0 clamp(6px,.8vw,12px)}.rm-tile.lime h4{color:#fff}
 .rm-tile p{font-size:clamp(.85rem,1.3vw,1.17rem);line-height:1.36;font-weight:500}
 .rm-tile.text{padding:clamp(20px,1.8vw,26px)}
 .rm-hero{aspect-ratio:1.76;max-height:none;background-position:center 15%}
