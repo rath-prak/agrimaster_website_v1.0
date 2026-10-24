@@ -25,6 +25,10 @@ const base = import.meta.env.BASE_URL;
       isPageHero={true}
     />
     <section class="wrap section">
+      <div class="sec-head">
+        <p class="eyebrow">Our products</p>
+        <h2>Complete feed in <span class="accent">pellet &amp; mash</span></h2>
+      </div>
       {
         products.map((product, index) => (
           <article id={product.id} class:list={['prod', { rev: index % 2 === 1 }]}>

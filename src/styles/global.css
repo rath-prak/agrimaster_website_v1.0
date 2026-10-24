@@ -155,8 +155,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .rm-hero h2 span{display:block}.rm-hero h2 .g{color:#7d837f}
 .rm-intro{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);margin:var(--s5) 0}
 .section-heading{display:inline-block;background:var(--lime);color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.04em;padding:9px 20px;border-radius:999px;margin-bottom:var(--s3)}
-.second-lead{font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:var(--display-lh);font-weight:700;margin:0;max-width:560px;letter-spacing:-.01em}
-.second-lead span,.rm-hero .g{color:#8a8f8b}
+.second-lead,.section-lead{font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:var(--display-lh);font-weight:700;margin:0;max-width:560px;letter-spacing:-.01em}
+.second-lead span,.section-lead span,.rm-hero .g{color:#8a8f8b}
 .rm-lead{font-size:clamp(1.05rem,1.4vw,1.3rem);font-weight:600;line-height:1.45;margin-bottom:var(--s3)}
 .rm-small{font-size:.92rem;color:#3d4540}
 .rm-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2)}
@@ -170,8 +170,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 /* raw materials typography (measured from mockup) */
 .rm h2,.rm h3,.rm h4{text-transform:none;letter-spacing:-.01em;color:#1a1d1b}
 .rm-hero h2{font-size:clamp(1.5rem,3.2vw,2.9rem);font-weight:700;line-height:var(--display-lh);top:clamp(20px,3.3vw,48px);left:clamp(20px,2.6vw,38px)}
-.rm-hero h2 .g,.second-lead span{color:#8a8a8a}
-.second-lead{font-size:clamp(1.5rem,3.05vw,2.75rem);font-weight:600;line-height:var(--display-lh);max-width:600px}
+.rm-hero h2 .g,.second-lead span,.section-lead span{color:#8a8a8a}
+.second-lead,.section-lead{font-size:clamp(1.5rem,3.05vw,2.75rem);font-weight:600;line-height:var(--display-lh);max-width:600px}
 .section-heading{font-size:clamp(.72rem,1.05vw,.95rem);font-weight:700;padding:.7em 1.6em;margin-bottom:clamp(16px,2.6vw,38px)}
 .rm-lead{font-size:clamp(1.05rem,1.9vw,1.72rem);font-weight:600;line-height:1.33;color:#1a1d1b;margin-bottom:clamp(14px,1.7vw,24px)}
 .rm-small{font-size:clamp(.85rem,1.3vw,1.17rem);font-weight:500;line-height:1.38;color:#2a2e2b}
@@ -179,7 +179,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .rm-tile p{font-size:clamp(.85rem,1.3vw,1.17rem);line-height:1.36;font-weight:500}
 .rm-tile.text{padding:clamp(20px,1.8vw,26px)}
 .rm-hero{aspect-ratio:1.76;max-height:none;background-position:center 15%}
-.second-lead{font-weight:700}
+.second-lead,.section-lead{font-weight:700}
 .section-heading{font-size:clamp(.75rem,1.2vw,1.08rem)}
 .rm-tile h4{font-size:clamp(1.15rem,1.95vw,1.78rem)}
 .rm-tile{min-height:0;aspect-ratio:1/.82}
@@ -241,3 +241,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 @media (max-width:640px){.amap .pin .core{r:11}.amap .pin .pulse{r:16}.amap-card{min-width:180px}}
 .amap-card[hidden],.amap-tip[hidden]{display:none!important}
 .rm-tile.grey{background:var(--green);color:#fff}.rm-tile.grey h4,.rm-tile.grey p{color:#fff}
+/* shared section intro classes */
+.second-lead,.section-lead{text-transform:none;letter-spacing:-.01em;color:#1a1d1b}
+.second-lead span,.section-lead span{color:#8a8a8a}
+.home-intro{margin-top:0}
+.home-intro .link{display:inline-block;margin-top:var(--s3)}

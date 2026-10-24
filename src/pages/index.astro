@@ -49,12 +49,15 @@ const base = import.meta.env.BASE_URL;
       <a class="btn btn-outline" href={`${base}about`}>Our story</a>
     </section>
     <section class="wrap section pt0">
-      <div class="sec-head row">
+      <div class="rm-intro home-intro">
         <div>
-          <p class="eyebrow">Our products</p>
-          <h2>Complete feed in <span class="accent">pellet &amp; mash</span></h2>
+          <span class="section-heading">ANIMAL NUTRITION</span>
+          <h3 class="second-lead">Quality Feed for Every <br /><span>Stage of Production</span></h3>
         </div>
-        <a class="link" href={`${base}products`}>All products →</a>
+        <div>
+          <p class="rm-small">We produce a comprehensive range of high-quality animal feeds for swine, poultry, ruminants and aquaculture. Our feeds are carefully formulated to meet the nutritional needs of different animal species at every stage of production, supporting healthy growth, development and productivity.</p>
+          <a class="link" href={`${base}products`}>All products →</a>
+        </div>
       </div>
       <div class="grid4">
         {products.map((product) => <ProductCard product={product} />)}
