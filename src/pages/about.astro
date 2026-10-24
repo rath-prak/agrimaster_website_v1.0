@@ -4,9 +4,11 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import Timeline from '../components/Timeline.astro';
-import { getQualityStats } from '../lib/products';
+import StatCard from '../components/StatCard.astro';
+import { getQualityStats, getCapacityStats } from '../lib/products';
 
 const qualityStats = await getQualityStats();
+const capacityStats = await getCapacityStats();
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -24,7 +26,18 @@ const base = import.meta.env.BASE_URL;
       image="feedmill.jpg"
       isPageHero={true}
     />
-    <section class="wrap section split">
+    <section class="wrap section">
+      <div class="band" style={`background-image:url(${base}assets/img/feedmill-aerial.webp)`}>
+        <div class="band-text">
+          <p class="eyebrow light">Production capacity</p>
+          <h2>Scalable infrastructure in Kandal Province</h2>
+        </div>
+        <div class="band-stats">
+          {capacityStats.map((stat) => <StatCard {...stat} />)}
+        </div>
+      </div>
+    </section>
+    <section class="wrap section pt0 split">
       <div>
         <p class="eyebrow">Who we are</p>
         <h2>Proudly <span class="accent">Cambodian</span></h2>
@@ -40,8 +53,8 @@ const base = import.meta.env.BASE_URL;
       </div>
       <img
         class="rimg"
-        src={`${base}assets/img/feedmill-aerial.webp`}
-        alt="Aerial view of the Agri Master feed mill in Kandal Province"
+        src={`${base}assets/img/feedmill-tower.jpg`}
+        alt="Agri Master feed mill tower"
         loading="lazy"
       />
     </section>

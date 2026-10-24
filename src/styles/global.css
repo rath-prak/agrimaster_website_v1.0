@@ -244,5 +244,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 /* shared section intro classes */
 .second-lead,.section-lead{text-transform:none;letter-spacing:-.01em;color:#1a1d1b}
 .second-lead span,.section-lead span{color:#8a8a8a}
-.home-intro{margin-top:0}
+.home-intro{margin:0 0 var(--s5);max-width:760px}
+.home-intro .second-lead{max-width:none}
+.home-intro .rm-small{margin:clamp(16px,2vw,28px) 0 0;max-width:640px}
 .home-intro .link{display:inline-block;margin-top:var(--s3)}

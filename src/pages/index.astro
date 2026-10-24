@@ -3,14 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
-import StatCard from '../components/StatCard.astro';
 import Timeline from '../components/Timeline.astro';
 import RawMaterials from '../components/RawMaterials.astro';
 import AvailabilityMap from '../components/AvailabilityMap.astro';
-import { getProducts, getCapacityStats } from '../lib/products';
+import { getProducts } from '../lib/products';
 
 const products = await getProducts();
-const capacityStats = await getCapacityStats();
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -49,15 +47,11 @@ const base = import.meta.env.BASE_URL;
       <a class="btn btn-outline" href={`${base}about`}>Our story</a>
     </section>
     <section class="wrap section pt0">
-      <div class="rm-intro home-intro">
-        <div>
-          <span class="section-heading">ANIMAL NUTRITION</span>
-          <h3 class="second-lead">Quality Feed for Every <br /><span>Stage of Production</span></h3>
-        </div>
-        <div>
-          <p class="rm-small">We produce a comprehensive range of high-quality animal feeds for swine, poultry, ruminants and aquaculture. Our feeds are carefully formulated to meet the nutritional needs of different animal species at every stage of production, supporting healthy growth, development and productivity.</p>
-          <a class="link" href={`${base}products`}>All products →</a>
-        </div>
+      <div class="home-intro">
+        <span class="section-heading">ANIMAL NUTRITION</span>
+        <h3 class="second-lead">Quality Animal Feed for Every <br /><span>Stage of Production</span></h3>
+        <p class="rm-small">We produce a comprehensive range of high-quality animal feeds for swine, poultry, ruminants and aquaculture. Our feeds are carefully formulated to meet the nutritional needs of different animal species at every stage of production, supporting healthy growth, development and productivity.</p>
+        <a class="link" href={`${base}products`}>All products →</a>
       </div>
       <div class="grid4">
         {products.map((product) => <ProductCard product={product} />)}
@@ -78,17 +72,6 @@ const base = import.meta.env.BASE_URL;
             height="1200"
             loading="lazy"
           />
-        </div>
-      </div>
-    </section>
-    <section class="wrap">
-      <div class="band" style={`background-image:url(${base}assets/img/feedmill-aerial.webp)`}>
-        <div class="band-text">
-          <p class="eyebrow light">Production capacity</p>
-          <h2>Scalable infrastructure in Kandal Province</h2>
-        </div>
-        <div class="band-stats">
-          {capacityStats.map((stat) => <StatCard {...stat} />)}
         </div>
       </div>
     </section>
