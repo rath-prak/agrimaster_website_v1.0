@@ -15,7 +15,7 @@ h3{font-size:1.15rem;line-height:1.3;margin:var(--s2) 0 var(--s1)}
 .muted{color:var(--mut)}.small{font-size:.88rem}.center{text-align:center}.mt{margin-top:var(--s3)}
 .todo{background:#fff1c2;color:#5a3d00;padding:1px 6px;border-radius:2px;font-weight:600}
 /* header */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid #e6eae3}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:var(--hh)}
 .logo img{height:46px;width:auto}
 #menu{display:flex;align-items:center;gap:var(--s4)}
