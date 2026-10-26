@@ -251,3 +251,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .home-intro .second-lead{max-width:none}
 .home-intro .rm-small{margin:clamp(16px,2vw,28px) 0 0;max-width:640px}
 .home-intro .link{display:inline-block;margin-top:var(--s3)}
+/* home hero: full-bleed, fills viewport under the white nav */
+.hero.full{padding:0;max-width:none}
+.hero.full .hero-img{border-radius:0;height:calc(100svh - var(--hh));min-height:520px;max-height:none}
+.hero.full .hero-content h1.hero-h1-only{margin-bottom:0}
+.hero.full .hero-content{padding-bottom:clamp(40px,7vh,96px)}
+.hero.full .hero-content{padding-left:max(var(--pad),calc((100vw - var(--container))/2 + var(--pad)));padding-right:max(var(--pad),calc((100vw - var(--container))/2 + var(--pad)))}
