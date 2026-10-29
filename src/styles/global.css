@@ -269,10 +269,28 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .card.pc.pc-block{border-radius:8px;overflow:hidden;background:var(--pc-bg);padding:0;border:0}
 .card.pc.pc-block .pc-img{border-radius:0}
 .pc-block .pc-body{padding:clamp(16px,1.6vw,24px)}
-.card.pc.pc-block h3,.card.pc.pc-block p{color:#fff;margin:0}
+.card.pc.pc-block h3,.card.pc.pc-block p{color:var(--pc-ink,#fff);margin:0}
 .card.pc.pc-block h3{margin-bottom:6px}
 .species-cta{margin-top:var(--s4)}
 .home-quality .rm-small{margin-bottom:var(--s2);max-width:600px}
 .home-quality .second-lead{margin:0 0 var(--s3)}
 .home-quality .btn{margin-top:var(--s2)}
 .home-final .cta{margin-bottom:0}
+
+/* features-2b: compact species cards */
+.card.pc.pc-block .pc-img{height:auto;aspect-ratio:4/3}
+.pc-block .pc-body{padding:14px 18px 16px}
+.card.pc.pc-block h3{font-size:1.15rem;margin-bottom:2px}
+.card.pc.pc-block p{font-size:.88rem;line-height:1.4}
+@media(max-width:760px){.card.pc.pc-block .pc-img{height:auto;aspect-ratio:16/10}}
+/* features-2b: story section */
+.story{position:relative;border-radius:var(--r);overflow:hidden;min-height:min(78vh,720px);display:flex;flex-direction:column;justify-content:space-between;gap:var(--s4);padding:clamp(28px,5vw,72px);color:#fff;
+ background:linear-gradient(90deg,rgba(8,22,12,.82) 0%,rgba(8,22,12,.55) 45%,rgba(8,22,12,.05) 80%),linear-gradient(0deg,rgba(8,22,12,.7) 0%,rgba(8,22,12,0) 40%),var(--story-img) center 45%/cover}
+.story-text{max-width:600px}
+.story-text h2{color:#fff;font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.02;margin:0 0 var(--s3);text-transform:none}
+.story-text p{color:#eef3ea;font-size:1.08rem;line-height:1.6;margin:0 0 var(--s3)}
+.story-stats{display:flex;gap:clamp(24px,5vw,72px);margin:0;flex-wrap:wrap}
+.story-stats div{border-left:2px solid rgba(255,255,255,.55);padding-left:18px}
+.story-stats dt{font-size:clamp(2rem,3.6vw,3.2rem);font-weight:800;line-height:1;color:#fff}
+.story-stats dd{margin:8px 0 0;font-size:.95rem;color:#dfe8da;max-width:240px}
+@media(max-width:760px){.story{min-height:640px;background:linear-gradient(0deg,rgba(8,22,12,.88) 0%,rgba(8,22,12,.55) 60%,rgba(8,22,12,.35) 100%),var(--story-img) center/cover}}

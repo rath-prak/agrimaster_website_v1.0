@@ -3,19 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
-import StatCard from '../components/StatCard.astro';
 import RawMaterials from '../components/RawMaterials.astro';
 import AvailabilityMap from '../components/AvailabilityMap.astro';
-import { getProducts, getCapacityStats } from '../lib/products';
+import { getProducts, getQualityStats } from '../lib/products';
 
 const products = await getProducts();
-const capacityStats = await getCapacityStats();
+const qualityStats = await getQualityStats();
+const storyStats = [qualityStats[1], qualityStats[0]].filter((x): x is { value: string; label: string } => !!x);
 const base = import.meta.env.BASE_URL;
-const speciesCards: Record<string, { title: string; text: string; color: string }> = {
-  swine: { title: 'Swine', text: 'Piglets, growing and finishing pigs, and breeding sows.', color: '#C62828' },
-  poultry: { title: 'Poultry', text: 'Broilers, native chickens, layers and ducks.', color: '#9A6A00' },
-  ruminant: { title: 'Ruminants', text: 'Beef cattle, dairy cattle, sheep and goats.', color: '#236D38' },
-  aquaculture: { title: 'Aquaculture', text: 'Floating feeds for freshwater fish.', color: '#1A7BA8' },
+const speciesCards: Record<string, { title: string; text: string; color: string; ink?: string }> = {
+  swine: { title: 'Swine', text: 'Piglets, growing and finishing pigs, and breeding sows.', color: '#2C3483' },
+  poultry: { title: 'Poultry', text: 'Broilers, native chickens, layers and ducks.', color: '#1F6134' },
+  ruminant: { title: 'Ruminants', text: 'Beef cattle, dairy cattle, sheep and goats.', color: '#699831', ink: '#1a1a1a' },
+  aquaculture: { title: 'Aquaculture', text: 'Floating feeds for freshwater fish.', color: '#FBAF3B', ink: '#1a1a1a' },
 };
 ---
 
@@ -27,10 +27,10 @@ const speciesCards: Record<string, { title: string; text: string; color: string 
   <Header currentPage="index" />
   <main id="main">
     <section class="hero full">
-      <div class="hero-img" style={`--hero-img:url(${base}assets/img/hero-rice-field.jpg)`}>
+      <div class="hero-img" style={`--hero-img:url(${base}assets/img/hero-paddy-battambang.webp)`}>
         <div class="hero-content">
           <h1 class="hero-h1-only">Quality Animal Nutrition. Made in Cambodia.</h1>
-          <p class="hero-sub">Proudly Cambodian-owned and operated since 2004, Agri Master produces high-quality animal feed for Cambodia's livestock and aquaculture industries.</p>
+          <p class="hero-sub">Proudly Cambodian-owned and operated since 2004.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href={`${base}products`}>Explore Animal Feed</a>
             <a class="btn btn-light" href={`${base}about`}>About Agri Master</a>
@@ -38,21 +38,16 @@ const speciesCards: Record<string, { title: string; text: string; color: string 
         </div>
       </div>
     </section>
-    <section class="section center wrap home-about">
-      <h2 class="second-lead">Growing with Cambodia Since 2004</h2>
-      <p class="rm-small">Agri Master is one of Cambodia's pioneering animal feed manufacturers. For more than two decades, we have supported local farmers through quality feed, modern manufacturing and practical animal nutrition expertise.</p>
-      <p class="rm-small">Our commitment goes beyond producing feed. We aim to contribute to stronger farming communities and the continued development of Cambodia's agricultural sector.</p>
-      <a class="btn btn-primary" href={`${base}about`}>Discover Our Story</a>
-    </section>
-    <section class="wrap">
-      <div class="band" style={`background-image:url(${base}assets/img/feedmill-aerial.webp)`}>
-        <div class="band-text">
-          <p class="eyebrow light">Production capacity</p>
-          <h2>Scalable infrastructure in Kandal Province</h2>
+    <section class="wrap section home-story">
+      <div class="story" style={`--story-img:url(${base}assets/img/feedmill-aerial.webp)`}>
+        <div class="story-text">
+          <h2>Growing with Cambodia Since 2004</h2>
+          <p>Agri Master is one of Cambodia's pioneering animal feed manufacturers. For more than two decades, we have supported local farmers through quality feed, modern manufacturing and practical animal nutrition expertise.</p>
+          <a class="btn btn-light" href={`${base}about`}>Discover Our Story</a>
         </div>
-        <div class="band-stats">
-          {capacityStats.map((stat) => <StatCard {...stat} />)}
-        </div>
+        <dl class="story-stats">
+          {storyStats.map((st) => <div><dt>{st.value}</dt><dd>{st.label}</dd></div>)}
+        </dl>
       </div>
     </section>
     <section class="wrap section">
@@ -68,7 +63,7 @@ const speciesCards: Record<string, { title: string; text: string; color: string 
         {
           products.map((product) => {
             const c = speciesCards[product.id];
-            return <ProductCard product={product} title={c?.title} text={c?.text} color={c?.color} />;
+            return <ProductCard product={product} title={c?.title} text={c?.text} color={c?.color} ink={c?.ink} />;
           })
         }
       </div>
@@ -94,16 +89,6 @@ const speciesCards: Record<string, { title: string; text: string; color: string 
       <a class="btn btn-primary" href={`${base}about`}>Learn About Agri Master</a>
     </section>
     <AvailabilityMap />
-    <section class="wrap section home-final">
-      <div class="cta">
-        <h2>Better Nutrition Starts Here.</h2>
-        <p>Explore our animal feed range or contact our team for product information and guidance.</p>
-        <div class="btn-row center">
-          <a class="btn btn-light" href={`${base}products`}>Explore Products</a>
-          <a class="btn btn-outline-light" href={`${base}contact`}>Contact Us</a>
-        </div>
-      </div>
-    </section>
   </main>
   <Footer />
 </Layout>

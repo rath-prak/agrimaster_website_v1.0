@@ -8,3 +8,16 @@ https://opendatacommons.org/licenses/odbl/1-0/
 Simplified (8%) with mapshaper and pre-projected to SVG in src/data/cambodiaProvinces.ts.
 
 Photo credits are listed in the site footer (src/components/Footer.astro).
+
+Photos (features-2b)
+--------------------
+public/assets/img/hero-paddy-battambang.webp
+  "Paddy fields near Battambang" by Christophe95
+  https://commons.wikimedia.org/wiki/File:Paddy_fields_near_Battambang.jpg
+  Licence: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+  Cropped (bottom 20%) and resized to 2400px webp.
+public/assets/img/stock-swine.webp
+  "Pig farm Vampula 1" by kallerna
+  https://commons.wikimedia.org/wiki/File:Pig_farm_Vampula_1.jpg
+  Licence: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+  Resized to 1200px webp.
