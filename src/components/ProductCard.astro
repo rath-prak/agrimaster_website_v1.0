@@ -3,16 +3,25 @@ import type { Product } from '../data/products';
 
 export interface Props {
   product: Product;
+  title?: string | undefined;
+  text?: string | undefined;
+  color?: string | undefined;
 }
 
-const { product } = Astro.props;
+const { product, title, text, color } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<article class="card pc">
-  <a aria-label={`${product.name} feed`} href={`${base}products#${product.id}`}>
+<article class:list={['card pc', { 'pc-block': title }]} style={color ? `--pc-bg:${color}` : undefined}>
+  <a aria-label={title ? undefined : `${product.name} feed`} href={`${base}products#${product.id}`}>
     <div class="pc-img">
       <img src={`${base}assets/img/${product.image}`} alt={`${product.name} feed`} loading="lazy" />
     </div>
+    {title && (
+      <div class="pc-body">
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+    )}
   </a>
 </article>
