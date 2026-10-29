@@ -38,12 +38,18 @@ const speciesCards: Record<string, { title: string; text: string; color: string;
         </div>
       </div>
     </section>
-    <section class="wrap section home-story">
+    <section class="section center wrap home-about">
+      <h2 class="second-lead">Growing with Cambodia Since 2004</h2>
+      <p class="rm-small">Agri Master is one of Cambodia's pioneering animal feed manufacturers. For more than two decades, we have supported local farmers through quality feed, modern manufacturing and practical animal nutrition expertise.</p>
+      <p class="rm-small">Our commitment goes beyond producing feed. We aim to contribute to stronger farming communities and the continued development of Cambodia's agricultural sector.</p>
+      <a class="btn btn-primary" href={`${base}about`}>Discover Our Story</a>
+    </section>
+    <section class="wrap section pt0 home-story">
       <div class="story" style={`--story-img:url(${base}assets/img/feedmill-aerial.webp)`}>
         <div class="story-text">
           <h2>Growing with Cambodia Since 2004</h2>
           <p>Agri Master is one of Cambodia's pioneering animal feed manufacturers. For more than two decades, we have supported local farmers through quality feed, modern manufacturing and practical animal nutrition expertise.</p>
-          <a class="btn btn-light" href={`${base}about`}>Discover Our Story</a>
+          <a class="btn btn-primary" href={`${base}about`}>Discover Our Story</a>
         </div>
         <dl class="story-stats">
           {storyStats.map((st) => <div><dt>{st.value}</dt><dd>{st.label}</dd></div>)}

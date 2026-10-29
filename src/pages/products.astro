@@ -2,66 +2,105 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
 import BrandGrid from '../components/BrandGrid.astro';
-import { getProducts } from '../lib/products';
 
-const products = await getProducts();
 const base = import.meta.env.BASE_URL;
+const species = [
+  { id: 'swine', title: 'Swine Feed', img: 'stock-swine.webp', color: '#2C3483', ink: '#fff',
+    p: ['Complete feeds and concentrates for piglets, growing and finishing pigs, breeding sows and lactating sows.', 'Formulated to provide appropriate nutrition throughout the different stages of swine production.'], btn: 'Explore Swine Feed' },
+  { id: 'poultry', title: 'Poultry Feed', img: 'stock-poultry.webp', color: '#1F6134', ink: '#fff',
+    p: ['Nutritional solutions for broilers, native chickens, laying hens and ducks.', 'Our range supports the different feeding requirements of young birds, growing poultry and egg production.'], btn: 'Explore Poultry Feed' },
+  { id: 'ruminant', title: 'Ruminant Feed', img: 'stock-cattle.webp', color: '#699831', ink: '#1a1a1a',
+    p: ['Feeds for beef cattle, dairy cattle, sheep and goats.', 'Developed to support nutritional requirements for growth, maintenance and production according to animal type and feeding stage.'], btn: 'Explore Ruminant Feed' },
+  { id: 'aquaculture', title: 'Aquaculture Feed', img: 'stock-aquaculture.webp', color: '#FBAF3B', ink: '#1a1a1a',
+    p: ['Floating pelleted feed for freshwater fish, with selected products for farmed frogs.', 'Our aquaculture range provides nutrition for different species and growth stages, from young stock through to harvest.'], btn: 'Explore Aquaculture Feed' },
+];
+const feedTypes = [
+  ['Mash Feed', 'Finely ground and mixed ingredients, formulated for specific feeding requirements.'],
+  ['Pellet Feed', 'Compressed feed pellets designed for convenient handling and feeding.'],
+  ['Crumble Feed', 'Smaller particles produced from pellets, suitable for selected young animals.'],
+  ['Floating Aquafeed', 'Specialised floating pellets designed for freshwater aquaculture.'],
+];
 ---
 
 <Layout
-  title="Products"
-  description="Swine, poultry, ruminant and aquaculture feed and our six brands."
+  title="Animal Feed"
+  description="Animal feed for every stage of production: swine, poultry, ruminant and aquaculture feed from Agri Master Cambodia."
   pageClass="products"
 >
   <Header currentPage="products" />
   <main id="main">
-    <Hero
-      eyebrow="Our products"
-      title="Complete feed for every stage"
-      lead="Agri Master Cambodia produces complete feed in both pellet and mash form for a wide range of livestock and aquaculture."
-      image="poultry.jpg"
-      isPageHero={true}
-    />
-    <section class="wrap section">
-      <div class="sec-head">
-        <p class="eyebrow">Our products</p>
-        <h2>Complete feed in <span class="accent">pellet &amp; mash</span></h2>
+    <section class="hero full">
+      <div class="hero-img" style={`--hero-img:url(${base}assets/img/corn-hero.jpg)`}>
+        <div class="hero-content">
+          <h1 class="hero-h1-only">Animal Feed for Every Stage of Production</h1>
+          <p class="hero-sub">Agri Master provides high-quality complete feeds and selected concentrates for Cambodia's livestock and aquaculture industries.</p>
+          <p class="hero-sub">Our products are formulated for different animal species and stages of production, supporting healthy growth, animal performance and farm productivity.</p>
+        </div>
       </div>
-      {
-        products.map((product, index) => (
-          <article id={product.id} class:list={['prod', { rev: index % 2 === 1 }]}>
-            <img
-              src={`${base}assets/img/${product.image}`}
-              alt={`${product.name} – Agri Master feed`}
-              loading="lazy"
-            />
-            <div>
-              <p class="eyebrow">Feed line 0{index + 1}</p>
-              <h2>
-                {product.name} <span class="accent">feed</span>
-              </h2>
-              <p class="lead l">{product.description}</p>
-              <ul class="ticks">
-                {product.features.map((feature) => (
-                  <li set:html={feature} />
-                ))}
-              </ul>
-              <p class="muted small">
-                Available as complete feed in pellet and mash form across all six Agri Master
-                brands.
-              </p>
+    </section>
+
+    <section class="wrap section">
+      <span class="section-heading">Explore Our Animal Feed</span>
+      <div class="sp-list">
+        {species.map((s, i) => (
+          <article id={s.id} class:list={['sp', { rev: i % 2 === 1 }]} style={`--sp-bg:${s.color};--sp-ink:${s.ink}`}>
+            <img src={`${base}assets/img/${s.img}`} alt={s.title} loading="lazy" />
+            <div class="sp-body">
+              <h3>{s.title}</h3>
+              {s.p.map((t) => <p>{t}</p>)}
+              <a class="btn btn-light" href={`${base}products#${s.id}`}>{s.btn}</a>
             </div>
           </article>
-        ))
-      }
-    </section>
-    <section id="brands" class="wrap section pt0">
-      <div class="sec-head brands-head">
-        <h2 class="brands-title">Our brands</h2>
+        ))}
       </div>
+    </section>
+
+    <section class="wrap section pt0">
+      <div class="split ed-split top">
+        <div>
+          <span class="section-heading">Feed Types</span>
+          <h3 class="second-lead">Different Forms for <span>Different Feeding Needs</span></h3>
+          <p class="ed-lead">Agri Master produces animal feed in several forms, depending on the animal species and product requirements.</p>
+          <img class="ed-img" src={`${base}assets/img/mash-pellet.webp`} alt="Agri Master mash and pellet feed" loading="lazy" />
+        </div>
+        <div>
+          <dl class="ftypes">
+            {feedTypes.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}
+          </dl>
+          <p class="rm-small ft-note">We also offer selected feed concentrates intended for mixing with other ingredients according to product instructions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="brands" class="wrap section pt0 center brands-sec">
+      <span class="section-heading">Our Feed Brands</span>
+      <h3 class="second-lead">Trusted Animal Nutrition. <span>Made in Cambodia.</span></h3>
+      <p class="rm-small">Our portfolio includes Master Feed, Super Feed, Eco Feed, Vital Feed, Golden Feed and Diamond Feed.</p>
+      <p class="rm-small">Master Feed is our original and most established brand, while newer additions such as Golden Feed and Diamond Feed have expanded our product portfolio.</p>
+      <p class="rm-small">Each brand reflects Agri Master's commitment to quality animal nutrition and the needs of Cambodian farmers.</p>
       <BrandGrid />
+    </section>
+
+    <section class="wrap section pt0">
+      <div class="story" style={`--story-img:url(${base}assets/img/production-line.jpg)`}>
+        <div class="story-text">
+          <span class="section-heading">Quality You Can Rely On</span>
+          <h2>Every quality feed begins with carefully selected ingredients.</h2>
+          <p>Through nutritional formulation, production monitoring and laboratory quality checks, we work to maintain the safety, consistency and reliability of our animal feed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section pt0 page-final">
+      <div class="cta">
+        <h2>Find the Right Feed for Your Farm</h2>
+        <p>Explore our products or speak with our team for information on feed selection, product specifications and feeding guidance.</p>
+        <div class="btn-row center">
+          <a class="btn btn-light" href={`${base}products`}>View Products</a>
+          <a class="btn btn-outline-light" href={`${base}contact`}>Contact Our Team</a>
+        </div>
+      </div>
     </section>
   </main>
   <Footer />

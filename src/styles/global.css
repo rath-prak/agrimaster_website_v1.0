@@ -294,3 +294,39 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .story-stats dt{font-size:clamp(2rem,3.6vw,3.2rem);font-weight:800;line-height:1;color:#fff}
 .story-stats dd{margin:8px 0 0;font-size:.95rem;color:#dfe8da;max-width:240px}
 @media(max-width:760px){.story{min-height:640px;background:linear-gradient(0deg,rgba(8,22,12,.88) 0%,rgba(8,22,12,.55) 60%,rgba(8,22,12,.35) 100%),var(--story-img) center/cover}}
+/* features-2c: About / Animal Feed editorial */
+.ed-split{gap:clamp(32px,6vw,96px)}
+.ed-split .section-heading{margin-bottom:var(--s3)}
+.ed-lead{font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.35;font-weight:600;color:var(--ink);margin:0 0 var(--s3)}
+.ed-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);display:block}
+.ed-split .ed-img{margin-top:var(--s3)}.ed-split>.ed-img{margin-top:0}
+.journey-sec .section-heading{margin-bottom:var(--s4)}
+.journey{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,48px)}
+.journey li{border-top:4px solid var(--jc);padding-top:var(--s3)}
+.j-year{display:block;font-size:clamp(2.6rem,4.4vw,4.2rem);font-weight:800;line-height:1;color:var(--ink);margin-bottom:var(--s2)}
+.journey h3{font-size:1.2rem;margin:0 0 8px}.journey p{color:var(--mut);margin:0;line-height:1.55}
+.story-text .section-heading{margin-bottom:var(--s3)}
+.page-final .cta{margin-bottom:0;padding:var(--s6) var(--s3)}
+.page-final .cta h2{color:#fff}
+.sp-list{display:flex;flex-direction:column;gap:var(--s4);margin-top:var(--s4)}
+.sp{display:grid;grid-template-columns:1.15fr 1fr;border-radius:var(--r);overflow:hidden;background:var(--sp-bg);color:var(--sp-ink);min-height:440px;scroll-margin-top:calc(var(--hh) + 16px)}
+.sp img{width:100%;height:100%;object-fit:cover;display:block}
+.sp.rev img{order:2}
+.sp-body{padding:clamp(28px,4.5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.sp-body h3{color:var(--sp-ink);font-size:clamp(2rem,3.4vw,3rem);line-height:1.05;margin:0 0 var(--s3)}
+.sp-body p{color:var(--sp-ink);margin:0 0 var(--s2);font-size:1.05rem;line-height:1.6;max-width:520px}
+.sp-body .btn{align-self:flex-start;margin-top:var(--s2)}
+.ftypes{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--s4) var(--s4)}
+.ftypes div{border-top:2px solid var(--green);padding-top:var(--s2)}
+.ftypes dt{font-size:1.35rem;font-weight:800;margin-bottom:8px;color:var(--ink)}
+.ftypes dd{margin:0;color:var(--mut);line-height:1.55}
+.ft-note{margin-top:var(--s4)}
+.brands-sec .rm-small{max-width:760px;margin:0 auto var(--s2)}
+.brands-sec .second-lead{max-width:900px;margin:var(--s2) auto var(--s3)}
+.brands-sec .brands{margin-top:var(--s4)}
+@media(max-width:900px){.journey{grid-template-columns:1fr 1fr}.sp{grid-template-columns:1fr;min-height:0}.sp img{height:260px}.sp.rev img{order:0}.ed-split.rev>.ed-img{order:0}}
+@media(max-width:560px){.journey,.ftypes{grid-template-columns:1fr}}
+.ed-split .second-lead{margin-bottom:var(--s3)}
+.ed-split .rm-small,.brands-sec .rm-small{margin-bottom:var(--s2)}
+.sp{height:460px}.sp img{min-height:0}
+@media(max-width:900px){.sp{height:auto}}
