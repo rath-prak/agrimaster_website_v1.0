@@ -5,18 +5,16 @@ export interface Props {
   product: Product;
   title?: string | undefined;
   text?: string | undefined;
-  color?: string | undefined;
-  ink?: string | undefined;
 }
 
-const { product, title, text, color, ink } = Astro.props;
+const { product, title, text } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<article class:list={['card pc', { 'pc-block': title }]} style={color ? `--pc-bg:${color};--pc-ink:${ink ?? '#fff'}` : undefined}>
+<article class:list={['card pc', { 'pc-photo': title }]}>
   <a aria-label={title ? undefined : `${product.name} feed`} href={`${base}products#${product.id}`}>
     <div class="pc-img">
-      <img src={`${base}assets/img/${product.image}`} alt={`${product.name} feed`} loading="lazy" />
+      <img src={`${base}assets/img/${product.image}`} alt="" loading="lazy" />
     </div>
     {title && (
       <div class="pc-body">

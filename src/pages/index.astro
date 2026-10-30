@@ -60,11 +60,11 @@ const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory anal
         {
           products.map((product) => {
             const c = speciesCards[product.id];
-            return <ProductCard product={product} title={c?.title} text={c?.text} color={c?.color} ink={c?.ink} />;
+            return <ProductCard product={product} title={c?.title} text={c?.text} />;
           })
         }
       </div>
-      <div class="species-cta"><a class="btn btn-primary" href={`${base}products`}>View Products</a></div>
+      <div class="species-cta center"><a class="btn btn-primary" href={`${base}products`}>View Products</a></div>
     </section>
     <section class="wrap section pt0" aria-labelledby="why-h">
       <div class="center">
