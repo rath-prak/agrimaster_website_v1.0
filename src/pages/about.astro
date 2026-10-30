@@ -5,16 +5,23 @@ import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
 const journey = [
-  { year: '2004', title: 'Our Beginning', text: 'Agri Master was established as a Cambodian-owned animal feed producer.', color: '#2C3483' },
-  { year: '2013', title: 'Modern Manufacturing', text: 'Opened our modern feed manufacturing facility in Kandal Province.', color: '#1F6134' },
-  { year: '2020', title: 'Advancing Aquaculture', text: "Established Cambodia's first commercial aquafeed plant, expanding domestic production of floating fish feed.", color: '#699831' },
-  { year: 'Today', title: 'Growing with Cambodia', text: 'Continuing to develop our production capabilities, product portfolio and agricultural partnerships.', color: '#FBAF3B' },
+  { year: '2004', text: 'Agri Master was established.', color: '#2C3483' },
+  { year: '2013', text: 'Opened a modern feed mill in Kandal Province.', color: '#1F6134' },
+  // Company-profile claim (2026 profile); keep wording exactly — no other first/largest/only claims.
+  { year: '2020', text: "Established Cambodia's first commercial aquafeed plant.", color: '#699831' },
+  { year: 'Today', text: "Continuing to serve Cambodia's livestock and aquaculture producers.", color: '#FBAF3B' },
+];
+const qcSteps = [
+  'Raw-material inspection',
+  'Production monitoring (PLC/SCADA)',
+  'Laboratory analysis',
+  'Finished-feed physical checks',
 ];
 ---
 
 <Layout
-  title="About"
-  description="Since 2004, Agri Master has grown alongside Cambodia's livestock and aquaculture industries."
+  title="About Us – Cambodian-Owned Feed Manufacturer Since 2004"
+  description="Agri Master is one of Cambodia's pioneering locally owned animal feed manufacturers, producing feed in Kandal Province since 2004. Our story, quality process and sourcing."
   pageClass="about"
 >
   <Header currentPage="about" />
@@ -23,90 +30,92 @@ const journey = [
       <div class="hero-img" style={`--hero-img:url(${base}assets/img/hero-rice-field.jpg)`}>
         <div class="hero-content">
           <h1 class="hero-h1-only">Proudly Cambodian. Committed to Agriculture.</h1>
-          <p class="hero-sub">Since 2004, Agri Master has grown alongside Cambodia's livestock and aquaculture industries, providing quality animal nutrition while supporting the development of local agriculture.</p>
+          <p class="hero-sub">Since 2004, Agri Master has produced animal feed for Cambodia's livestock and aquaculture sectors, combining quality manufacturing with a commitment to local farmers and agricultural development.</p>
         </div>
       </div>
     </section>
 
-    <section class="wrap section">
+    <section class="wrap section" id="story">
       <div class="split ed-split">
         <div>
-          <span class="section-heading">Who We Are</span>
-          <p class="ed-lead">Agri Master was founded in 2004 as part of Medivet Cambodia, becoming one of the country's pioneering locally owned animal feed manufacturers.</p>
-          <p class="rm-small">Today, our modern manufacturing facility in Kandal Province produces feed for swine, poultry, ruminants and freshwater aquaculture.</p>
-          <p class="rm-small">We combine high-quality ingredients, carefully developed formulations, modern production technology and practical expertise to meet the evolving needs of Cambodian farmers.</p>
+          <span class="section-heading">Company Story</span>
+          <h2 class="second-lead">Who We Are</h2>
+          <p class="ed-lead">Established in 2004 as part of Medivet Cambodia, Agri Master is one of the country's pioneering locally owned animal feed manufacturers.</p>
+          <p class="rm-small">Our production facility in Kandal Province supplies feed for swine, poultry, ruminants and freshwater aquaculture.</p>
         </div>
         <img class="ed-img" src={`${base}assets/img/feedmill.jpg`} alt="Agri Master feed mill in Kandal Province" loading="lazy" />
       </div>
     </section>
 
-    <section class="wrap section pt0 journey-sec">
-      <span class="section-heading">Our Journey</span>
+    <section class="wrap section pt0 journey-sec" aria-labelledby="journey-h">
+      <h2 id="journey-h" class="section-heading">Our Journey</h2>
       <ol class="journey">
         {journey.map((j) => (
           <li style={`--jc:${j.color}`}>
             <b class="j-year">{j.year}</b>
-            <h3>{j.title}</h3>
             <p>{j.text}</p>
           </li>
         ))}
       </ol>
     </section>
 
-    <section class="wrap section pt0">
+    <section class="wrap section pt0" id="purpose">
       <div class="story" style={`--story-img:url(${base}assets/img/ruminant.jpg)`}>
         <div class="story-text">
           <span class="section-heading">Our Purpose</span>
           <h2>Supporting Farmers. Strengthening Cambodia.</h2>
-          <p>We believe quality animal nutrition plays an important role in healthy livestock, productive farms and Cambodia's food security.</p>
-          <p>Our purpose is to support farmers through reliable feed, practical knowledge and a long-term commitment to the development of Cambodia's livestock and aquaculture industries.</p>
+          <p>We believe quality animal nutrition supports healthy livestock, productive farming and the long-term development of Cambodia's food and agricultural sector.</p>
         </div>
       </div>
     </section>
 
-    <section id="quality" class="wrap section">
+    <section id="ingredients" class="wrap section">
       <div class="split ed-split rev">
         <img class="ed-img" src={`${base}assets/img/raw-materials-corn.jpg`} alt="Corn being unloaded for feed production" loading="lazy" />
         <div>
-          <span class="section-heading">Quality at Every Stage</span>
-          <h3 class="second-lead">From Raw Materials to <span>Finished Feed</span></h3>
-          <p class="ed-lead">Good animal feed begins with good ingredients.</p>
-          <p class="rm-small">We prioritise suitable Cambodian raw materials where available and source high-quality ingredients internationally when needed.</p>
-          <p class="rm-small">Our manufacturing process incorporates raw-material inspection, production monitoring, laboratory analysis and finished-product quality checks to maintain consistent feed standards.</p>
+          <span class="section-heading">Ingredients</span>
+          <h2 class="second-lead">Quality Begins with <span>Ingredients</span></h2>
+          <p class="ed-lead">Good feed begins with good raw materials.</p>
+          <p class="rm-small">We prioritise suitable ingredients grown in Cambodia when available and source dependable international supplies when needed. Our focus is nutritional quality, safety, consistency and reliable supply.</p>
         </div>
       </div>
     </section>
 
-    <section class="wrap section pt0">
+    <section id="quality" class="wrap section pt0">
       <div class="split ed-split">
         <div>
-          <span class="section-heading">Technical Expertise and Partnerships</span>
-          <h3 class="second-lead">Local Knowledge. <span>International Cooperation.</span></h3>
-          <p class="ed-lead">We believe agricultural progress is strengthened through knowledge-sharing and collaboration.</p>
-          <p class="rm-small">Our longstanding relationship with the American Soybean Association's World Initiative for Soy in Human Health (ASA/WISHH) has supported technical knowledge exchange in feed formulation, production and aquaculture development.</p>
-          <p class="rm-small">These relationships complement our understanding of Cambodian farming conditions and our commitment to practical animal nutrition.</p>
+          <span class="section-heading">Quality</span>
+          <h2 class="second-lead">Quality from Ingredient <span>to Finished Feed</span></h2>
+          <p class="rm-small">Our documented quality-control process includes raw-material inspection, production monitoring, laboratory analysis and finished-product checks. Each stage contributes to the consistency and reliability of our animal feed.</p>
+          <ol class="qc-steps">
+            {qcSteps.map((t, i) => <li><b>{i + 1}</b><span>{t}</span></li>)}
+          </ol>
         </div>
         <img class="ed-img" src={`${base}assets/img/production-line.jpg`} alt="Agri Master feed production line" loading="lazy" />
       </div>
     </section>
 
-    <section class="wrap section pt0">
+    <section id="knowledge" class="wrap section pt0 center home-about">
+      <span class="section-heading">Technical Relationships</span>
+      <h2 class="second-lead">Local Experience. <span>International Knowledge.</span></h2>
+      <p class="rm-small">Agri Master's longstanding relationship with the American Soybean Association's World Initiative for Soy in Human Health (ASA/WISHH) has supported technical knowledge exchange in feed formulation, production practices and aquaculture development.</p>
+    </section>
+
+    <section class="wrap section pt0" id="commitment">
       <div class="split ed-split rev">
         <img class="ed-img" src={`${base}assets/img/local-crops.jpg`} alt="Cambodian village farmland" loading="lazy" />
         <div>
-          <span class="section-heading">Our Commitment to Cambodia</span>
-          <h3 class="second-lead">Growing Together for a <span>Stronger Future</span></h3>
-          <p class="ed-lead">Our commitment extends beyond animal feed manufacturing.</p>
-          <p class="rm-small">By prioritising suitable locally grown agricultural ingredients, supporting farmer education and working with industry partners, we aim to create opportunities across Cambodia's agricultural value chain.</p>
-          <p class="rm-small">We believe the growth of Agri Master should also contribute to the farmers, businesses and communities that support Cambodia's agricultural future.</p>
+          <span class="section-heading">Cambodia Commitment</span>
+          <h2 class="second-lead">Our Commitment <span>to Cambodia</span></h2>
+          <p class="rm-small">Our contribution extends beyond the factory. Through local feed manufacturing, purchasing suitable Cambodian agricultural materials and supporting the exchange of technical knowledge, we aim to strengthen connections across Cambodia's agricultural sector.</p>
         </div>
       </div>
     </section>
 
     <section class="wrap section pt0 page-final">
       <div class="cta">
-        <h2>Discover Our Animal Feed Range</h2>
-        <p>Explore our products for livestock and aquaculture, developed for different stages of animal production.</p>
+        <h2>Explore Our Animal Feed</h2>
+        <p>Discover feeds for different animal species and production stages.</p>
         <a class="btn btn-light" href={`${base}products`}>View Animal Feed</a>
       </div>
     </section>

@@ -1,7 +1,9 @@
 ---
 import { provinces, project, MAP_W, MAP_H } from '../data/cambodiaProvinces';
 import { availability, FEEDMILL } from '../data/availability';
-const spots = [FEEDMILL, ...availability].map((s) => ({ ...s, ...project(s.lat, s.lng) }));
+// 'Echo' hidden until the official brand spelling (Eco vs ECHO) is verified.
+const HIDDEN_BRANDS = new Set(['Echo']);
+const spots = [FEEDMILL, ...availability].map((s) => ({ ...s, brands: s.brands.filter((b) => !HIDDEN_BRANDS.has(b)), ...project(s.lat, s.lng) }));
 const active = new Set(spots.map((s) => s.province));
 ---
 

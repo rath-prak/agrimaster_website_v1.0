@@ -330,3 +330,25 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .ed-split .rm-small,.brands-sec .rm-small{margin-bottom:var(--s2)}
 .sp{height:460px}.sp img{min-height:0}
 @media(max-width:900px){.sp{height:auto}}
+
+/* ---- f3: QC steps, why list, catalogue filter ---- */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.qc-steps{list-style:none;padding:0;margin:1.25rem 0 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.qc-steps li{display:flex;align-items:center;gap:.75rem;background:#f3f5f1;border-radius:12px;padding:.75rem 1rem;font-weight:600}
+.qc-steps b{flex:none;width:2rem;height:2rem;border-radius:50%;background:#1F6134;color:#fff;display:grid;place-items:center}
+.why{list-style:none;padding:0;margin:1.5rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.why li{background:#f3f5f1;border-radius:16px;padding:1.5rem;border-top:4px solid #699831}
+.why h3{margin:0 0 .5rem;color:#2C3483;font-size:1.15rem}
+.why p{margin:0}
+.catalogue .cat-filter{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.5rem}
+.chip{font:inherit;cursor:pointer;border:2px solid #1F6134;background:#fff;color:#1F6134;border-radius:999px;padding:.45rem 1.1rem;font-weight:600}
+.chip[aria-pressed="true"]{background:#1F6134;color:#fff}
+.chip:focus-visible,.cat-panel:focus-visible{outline:3px solid #FBAF3B;outline-offset:2px}
+.cat-panels{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.cat-panel{border:1px solid #dfe3da;border-radius:16px;padding:1.25rem 1.5rem}
+.cat-panel[hidden]{display:none}
+.cat-panel h3{margin:0 0 .5rem;color:#2C3483}
+.cat-empty p{margin:0 0 1rem}
+.ft-kind{margin-top:1.5rem}
+.center .second-lead{margin-inline:auto;text-align:center}
+@media (max-width:900px){.why,.cat-panels,.qc-steps{grid-template-columns:1fr}}

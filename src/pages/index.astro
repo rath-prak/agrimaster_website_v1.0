@@ -5,23 +5,27 @@ import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import RawMaterials from '../components/RawMaterials.astro';
 import AvailabilityMap from '../components/AvailabilityMap.astro';
-import { getProducts, getQualityStats } from '../lib/products';
+import { getProducts } from '../lib/products';
 
 const products = await getProducts();
-const qualityStats = await getQualityStats();
-const storyStats = [qualityStats[1], qualityStats[0]].filter((x): x is { value: string; label: string } => !!x);
 const base = import.meta.env.BASE_URL;
 const speciesCards: Record<string, { title: string; text: string; color: string; ink?: string }> = {
-  swine: { title: 'Swine', text: 'Piglets, growing and finishing pigs, and breeding sows.', color: '#2C3483' },
-  poultry: { title: 'Poultry', text: 'Broilers, native chickens, layers and ducks.', color: '#1F6134' },
-  ruminant: { title: 'Ruminants', text: 'Beef cattle, dairy cattle, sheep and goats.', color: '#699831', ink: '#1a1a1a' },
-  aquaculture: { title: 'Aquaculture', text: 'Floating feeds for freshwater fish.', color: '#FBAF3B', ink: '#1a1a1a' },
+  swine: { title: 'Swine', text: 'Feed for piglets, growing and finishing pigs, and breeding sows.', color: '#2C3483' },
+  poultry: { title: 'Poultry', text: 'Feed for broilers, native chickens, laying hens and ducks.', color: '#1F6134' },
+  ruminant: { title: 'Ruminants', text: 'Feed for beef cattle, dairy cattle, sheep and goats.', color: '#699831', ink: '#1a1a1a' },
+  aquaculture: { title: 'Aquaculture', text: 'Floating feeds for freshwater fish, with selected products for frogs.', color: '#FBAF3B', ink: '#1a1a1a' },
 };
+const why = [
+  ['Quality ingredients', 'Carefully selected materials and dependable sourcing.'],
+  ['Controlled manufacturing', 'Production monitoring, laboratory analysis and finished-feed checks.'],
+  ['Practical expertise', 'Feeding information and technical knowledge relevant to Cambodian producers.'],
+];
+const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory analysis', 'Finished-feed checks'];
 ---
 
 <Layout
-  title="Animal Nutrition"
-  description="Agri Master Cambodia – locally owned feedmill producing swine, poultry, ruminant and aquaculture feed since 2004."
+  title="Quality Animal Feed Made in Cambodia"
+  description="Cambodian-owned since 2004, Agri Master manufactures animal feed for swine, poultry, ruminants and freshwater aquaculture in Kandal Province."
   pageClass="index"
 >
   <Header currentPage="index" />
@@ -29,8 +33,8 @@ const speciesCards: Record<string, { title: string; text: string; color: string;
     <section class="hero full">
       <div class="hero-img" style={`--hero-img:url(${base}assets/img/hero-paddy-battambang.webp)`}>
         <div class="hero-content">
-          <h1 class="hero-h1-only">Quality Animal Nutrition. Made in Cambodia.</h1>
-          <p class="hero-sub">Proudly Cambodian-owned and operated since 2004.</p>
+          <h1 class="hero-h1-only">Quality Feed. Stronger Farms. A Stronger Cambodia.</h1>
+          <p class="hero-sub">Proudly Cambodian-owned since 2004, Agri Master manufactures high-quality animal feed for livestock and freshwater aquaculture.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href={`${base}products`}>Explore Animal Feed</a>
             <a class="btn btn-light" href={`${base}about`}>About Agri Master</a>
@@ -38,32 +42,19 @@ const speciesCards: Record<string, { title: string; text: string; color: string;
         </div>
       </div>
     </section>
-    <section class="section center wrap home-about">
-      <h2 class="second-lead">Growing with Cambodia Since 2004</h2>
-      <p class="rm-small">Agri Master is one of Cambodia's pioneering animal feed manufacturers. For more than two decades, we have supported local farmers through quality feed, modern manufacturing and practical animal nutrition expertise.</p>
-      <p class="rm-small">Our commitment goes beyond producing feed. We aim to contribute to stronger farming communities and the continued development of Cambodia's agricultural sector.</p>
-      <a class="btn btn-primary" href={`${base}about`}>Discover Our Story</a>
-    </section>
-    <section class="wrap section pt0 home-story">
+    <section class="wrap section home-story">
       <div class="story" style={`--story-img:url(${base}assets/img/feedmill-aerial.webp)`}>
         <div class="story-text">
           <h2>Growing with Cambodia Since 2004</h2>
-          <p>Agri Master is one of Cambodia's pioneering animal feed manufacturers. For more than two decades, we have supported local farmers through quality feed, modern manufacturing and practical animal nutrition expertise.</p>
-          <a class="btn btn-primary" href={`${base}about`}>Discover Our Story</a>
+          <p>For more than two decades, Agri Master has grown alongside Cambodian farmers. From our manufacturing facility in Kandal Province, we produce feed for different animals and production stages, supported by a commitment to quality and local agricultural development.</p>
+          <a class="btn btn-primary" href={`${base}about`}>Our Story</a>
         </div>
-        <dl class="story-stats">
-          {storyStats.map((st) => <div><dt>{st.value}</dt><dd>{st.label}</dd></div>)}
-        </dl>
       </div>
     </section>
-    <section class="wrap section">
-      <div class="home-intro">
-        <div>
-        <span class="section-heading">ANIMAL NUTRITION</span>
-        <h3 class="second-lead">Quality Animal Feed for Every <br /><span>Stage of Production</span></h3>
-        <p class="rm-small">We produce a comprehensive range of high-quality animal feeds for swine, poultry, ruminants and aquaculture. Our feeds are carefully formulated to meet the nutritional needs of different animal species at every stage of production, supporting healthy growth, development and productivity.</p>
-        </div>
-        <img class="home-intro-img" src={`${base}assets/img/mash-pellet.webp`} alt="Agri Master mash and pellet feed" width="1600" height="900" loading="lazy" />
+    <section class="wrap section pt0" aria-labelledby="cats-h">
+      <div class="center">
+        <span class="section-heading">Animal Feed</span>
+        <h2 id="cats-h" class="second-lead">Feed for Every Stage</h2>
       </div>
       <div class="grid4 species">
         {
@@ -73,28 +64,54 @@ const speciesCards: Record<string, { title: string; text: string; color: string;
           })
         }
       </div>
-      <div class="species-cta"><a class="btn btn-primary" href={`${base}products`}>View Animal Feed</a></div>
+      <div class="species-cta"><a class="btn btn-primary" href={`${base}products`}>View Products</a></div>
     </section>
-    <RawMaterials />
-    <section class="wrap section">
+    <section class="wrap section pt0" aria-labelledby="why-h">
+      <div class="center">
+        <span class="section-heading">Why Agri Master</span>
+        <h2 id="why-h" class="second-lead">Built on Quality, Knowledge <span>and Cambodian Commitment</span></h2>
+      </div>
+      <ul class="why">
+        {why.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}
+      </ul>
+      <div class="species-cta"><a class="btn btn-primary" href={`${base}about#quality`}>Learn About Our Quality</a></div>
+    </section>
+    <section class="wrap section pt0">
       <div class="split home-quality">
         <div>
-          <span class="section-heading">Our Commitment to Quality</span>
-          <h3 class="second-lead">Quality Begins with Better Ingredients</h3>
-          <p class="rm-small">We carefully select high-quality raw materials from Cambodia and trusted international suppliers to produce nutritionally balanced and reliable animal feed.</p>
-          <p class="rm-small">From ingredient inspection and laboratory testing to production monitoring and finished-feed checks, quality is integrated throughout our manufacturing process.</p>
-          <a class="btn btn-primary" href={`${base}about#quality`}>Learn About Our Quality Standards</a>
+          <span class="section-heading">Quality Control</span>
+          <h2 class="second-lead">Quality at <span>Every Stage</span></h2>
+          <p class="rm-small">Our quality-control process covers raw-material inspection, production monitoring, laboratory analysis and finished-feed checks to help maintain the consistency and reliability of our feed.</p>
+          <ol class="qc-steps">{qc.map((t, i) => <li><b>{i + 1}</b><span>{t}</span></li>)}</ol>
+          <a class="btn btn-primary" href={`${base}about#quality`}>How We Work</a>
         </div>
         <img class="rimg" src={`${base}assets/img/production-line.jpg`} alt="Agri Master feed production line" loading="lazy" />
       </div>
     </section>
     <section class="section center wrap pt0 home-about">
-      <h2 class="second-lead">Supporting Cambodia's Agricultural Future</h2>
-      <p class="rm-small">As a Cambodian-owned manufacturer, we are committed to strengthening the country's agricultural sector through local sourcing, technical knowledge and long-term partnerships.</p>
-      <p class="rm-small">We believe that supporting farmers today helps build a stronger food and agricultural future for Cambodia.</p>
-      <a class="btn btn-primary" href={`${base}about`}>Learn About Agri Master</a>
+      <span class="section-heading">Farmer Knowledge</span>
+      <h2 class="second-lead">More Than Animal Feed</h2>
+      <p class="rm-small">We believe better farming depends on good nutrition and useful knowledge. Agri Master supports the exchange of practical information that helps farmers understand feed selection and use.</p>
+      <a class="btn btn-primary" href={`${base}about#knowledge`}>About Our Approach</a>
     </section>
+    <section class="section center wrap pt0 home-about">
+      <span class="section-heading">Cambodian Agriculture</span>
+      <h2 class="second-lead">Supporting Cambodia's Agricultural Future</h2>
+      <p class="rm-small">We prioritise suitable locally grown raw materials when available and source quality ingredients internationally when needed. Together with local manufacturing and industry cooperation, this supports our long-term commitment to Cambodian agriculture.</p>
+      <a class="btn btn-primary" href={`${base}about`}>About Agri Master</a>
+    </section>
+    <RawMaterials />
     <AvailabilityMap />
+    <section class="wrap section page-final">
+      <div class="cta">
+        <h2>Find the Right Feed for Your Farm</h2>
+        <p>Explore our feed products or contact our team for product information and feeding guidance.</p>
+        <div class="btn-row center">
+          <a class="btn btn-light" href={`${base}products`}>Explore Products</a>
+          <a class="btn btn-outline-light" href={`${base}contact`}>Contact Us</a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </Layout>

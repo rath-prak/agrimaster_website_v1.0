@@ -29,7 +29,7 @@ import Hero from '../components/Hero.astro';
         <div class="frow">
           <label>Email<input name="email" type="email" required autocomplete="email" /></label>
           <label
-            >I'm interested in<select name="topic">
+            >I'm interested in<select name="topic" id="topic">
               <option>Swine feed</option>
               <option>Poultry feed</option>
               <option>Ruminant feed</option>
@@ -81,3 +81,10 @@ import Hero from '../components/Hero.astro';
   </main>
   <Footer />
 </Layout>
+
+<script>
+  // Preselect the enquiry topic from ?topic= (used by Animal Feed enquiry links).
+  const t = new URLSearchParams(location.search).get('topic');
+  const sel = document.getElementById('topic') as HTMLSelectElement | null;
+  if (t && sel) [...sel.options].forEach((o) => { if (o.text === t) sel.value = o.text; });
+</script>

@@ -16,7 +16,7 @@ import type { Product } from '../data/products';
 import type { Brand } from '../data/brands';
 import type { Milestone } from '../data/milestones';
 import { products as localProducts } from '../data/products';
-import { brands as localBrands } from '../data/brands';
+import { publishedBrands as localBrands } from '../data/brands';
 import { milestones as localMilestones } from '../data/milestones';
 import {
   capacityStats as localCapacityStats,
