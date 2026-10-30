@@ -3,18 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BrandGrid from '../components/BrandGrid.astro';
-import { skus } from '../data/products';
 
 const base = import.meta.env.BASE_URL;
 const species = [
   { id: 'swine', title: 'Swine Feed', topic: 'Swine feed', img: 'stock-swine.webp', color: '#2C3483', ink: '#fff',
-    p: 'Complete feeds and selected concentrates for piglets, growing and finishing pigs, breeding animals and sows.', btn: 'Explore Swine Feed' },
+    p: 'Complete feeds and selected concentrates for piglets, growing and finishing pigs, breeding animals and sows.', btn: 'Ask About Swine Feed' },
   { id: 'poultry', title: 'Poultry Feed', topic: 'Poultry feed', img: 'stock-poultry.webp', color: '#1F6134', ink: '#fff',
-    p: 'Feeds for broilers, native chickens, laying hens and ducks at different production stages.', btn: 'Explore Poultry Feed' },
+    p: 'Feeds for broilers, native chickens, laying hens and ducks at different production stages.', btn: 'Ask About Poultry Feed' },
   { id: 'ruminant', title: 'Ruminant Feed', topic: 'Ruminant feed', img: 'stock-cattle.webp', color: '#699831', ink: '#1a1a1a',
-    p: 'Feeds for beef cattle, dairy cattle, sheep and goats, according to animal type and feeding needs.', btn: 'Explore Ruminant Feed' },
+    p: 'Feeds for beef cattle, dairy cattle, sheep and goats, according to animal type and feeding needs.', btn: 'Ask About Ruminant Feed' },
   { id: 'aquaculture', title: 'Aquaculture Feed', topic: 'Aquaculture feed', img: 'stock-aquaculture.webp', color: '#FBAF3B', ink: '#1a1a1a',
-    p: 'Floating feeds for freshwater fish, with selected products for farmed frogs, suited to different stages of production.', btn: 'Explore Aquaculture Feed' },
+    p: 'Floating feeds for freshwater fish, with selected products for farmed frogs, suited to different stages of production.', btn: 'Ask About Aquaculture Feed' },
 ] as const;
 const feedForms = [
   ['Mash', 'Finely mixed feed for specified feeding requirements.'],
@@ -22,7 +21,7 @@ const feedForms = [
   ['Crumbles', 'Smaller feed particles used in selected feeding stages.'],
   ['Floating aquafeed', 'Floating pellets for freshwater aquaculture.'],
 ];
-const typeLabel = { complete: 'Complete feed', concentrate: 'Concentrate' } as const;
+const contact = (t: string) => `${base}contact?topic=${encodeURIComponent(t)}`;
 ---
 
 <Layout
@@ -38,14 +37,14 @@ const typeLabel = { complete: 'Complete feed', concentrate: 'Concentrate' } as c
           <h1 class="hero-h1-only">Animal Feed for Every Stage of Production</h1>
           <p class="hero-sub">Explore complete feeds and selected concentrates for swine, poultry, ruminants and freshwater aquaculture.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="#catalogue">Find Feed by Animal</a>
+            <a class="btn btn-primary" href={`${base}contact`}>Request Product Portfolio</a>
           </div>
         </div>
       </div>
     </section>
 
     <section class="wrap section" aria-labelledby="species-h">
-      <h2 id="species-h" class="section-heading">Browse by Animal</h2>
+      <h2 id="species-h" class="section-heading">Our Animal Feed</h2>
       <div class="sp-list">
         {species.map((s, i) => (
           <article id={s.id} class:list={['sp', { rev: i % 2 === 1 }]} style={`--sp-bg:${s.color};--sp-ink:${s.ink}`}>
@@ -53,47 +52,18 @@ const typeLabel = { complete: 'Complete feed', concentrate: 'Concentrate' } as c
             <div class="sp-body">
               <h3>{s.title}</h3>
               <p>{s.p}</p>
-              <a class="btn btn-light" href={`#${s.id}-products`} data-filter={s.id}>{s.btn}</a>
+              <a class="btn btn-light" href={contact(s.topic)}>{s.btn}</a>
             </div>
           </article>
         ))}
       </div>
     </section>
 
-    <section id="catalogue" class="wrap section pt0 catalogue" aria-labelledby="cat-h">
-      <span class="section-heading">Feed Products</span>
-      <h2 id="cat-h" class="second-lead">Find Product Information <span>by Animal</span></h2>
-      <div class="cat-filter" role="group" aria-label="Filter products by animal">
-        <button type="button" class="chip" data-filter="all" aria-pressed="true">All animals</button>
-        {species.map((s) => <button type="button" class="chip" data-filter={s.id} aria-pressed="false">{s.title.replace(' Feed', '')}</button>)}
-      </div>
-      <p class="sr-only" role="status" aria-live="polite" id="cat-status"></p>
-      <div class="cat-panels">
-        {species.map((s) => {
-          const list = skus.filter((k) => k.species === s.id);
-          return (
-            <div class="cat-panel" id={`${s.id}-products`} data-species={s.id} tabindex="-1">
-              <h3>{s.title}</h3>
-              {list.length ? (
-                <ul class="sku-list">
-                  {list.map((k) => (
-                    <li class="sku">
-                      <h4>{k.name} <span class="muted">{k.code}</span></h4>
-                      <p>{[k.brand, k.stage, k.productType && typeLabel[k.productType], k.form, k.packSize].filter(Boolean).join(' · ')}</p>
-                      <a href={`${base}contact?topic=${encodeURIComponent(s.topic)}`}>Enquire about {k.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div class="cat-empty">
-                  <p>{s.p}</p>
-                  <a class="btn btn-primary btn-sm" href={`${base}contact?topic=${encodeURIComponent(s.topic)}`}>Contact our team for {s.title.toLowerCase()} information</a>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+    <section id="range" class="wrap section pt0 center home-about">
+      <span class="section-heading">Our Range</span>
+      <h2 class="second-lead">Quality Feed, <span>Complete or Concentrated</span></h2>
+      <p class="rm-small">We use high-quality ingredients to produce both complete feeds and concentrates, in pellet and mash forms. Contact us for our complete product portfolio.</p>
+      <a class="btn btn-primary" href={`${base}contact`}>Request Product Portfolio</a>
     </section>
 
     <section class="wrap section pt0" id="feed-forms">
@@ -118,6 +88,7 @@ const typeLabel = { complete: 'Complete feed', concentrate: 'Concentrate' } as c
     <section id="brands" class="wrap section pt0 center brands-sec">
       <span class="section-heading">Brands</span>
       <h2 class="second-lead">Our Feed Brands</h2>
+      <p class="rm-small">Our brands are Master Feed, Super Feed, Eco Feed, Vital Feed, Golden Feed and Diamond Feed.</p>
       <p class="rm-small">Agri Master's portfolio includes long-established and newer feed brands serving different product and market needs. Master Feed is our original and most established brand; Golden Feed and Diamond Feed are more recent additions.</p>
       <BrandGrid />
     </section>
@@ -135,10 +106,10 @@ const typeLabel = { complete: 'Complete feed', concentrate: 'Concentrate' } as c
 
     <section class="wrap section pt0 page-final">
       <div class="cta">
-        <h2>Find Product Information or Contact Our Team</h2>
-        <p>Browse individual feeds for their intended animal and stage, feed form, pack size, relevant specifications and instructions.</p>
+        <h2>Find the Right Feed for Your Farm</h2>
+        <p>Contact our team for our complete product portfolio and feeding guidance.</p>
         <div class="btn-row center">
-          <a class="btn btn-light" href="#catalogue">Explore Feed Products</a>
+          <a class="btn btn-light" href={`${base}contact`}>Request Product Portfolio</a>
           <a class="btn btn-outline-light" href={`${base}contact`}>Contact Us</a>
         </div>
       </div>
@@ -146,23 +117,3 @@ const typeLabel = { complete: 'Complete feed', concentrate: 'Concentrate' } as c
   </main>
   <Footer />
 </Layout>
-
-<script>
-  const ids = ['swine', 'poultry', 'ruminant', 'aquaculture'];
-  const chips = [...document.querySelectorAll<HTMLButtonElement>('.cat-filter .chip')];
-  const panels = [...document.querySelectorAll<HTMLElement>('.cat-panel')];
-  const status = document.getElementById('cat-status');
-  function apply(f: string, focus = false) {
-    chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.filter === f)));
-    panels.forEach((p) => (p.hidden = f !== 'all' && p.dataset.species !== f));
-    if (status) status.textContent = f === 'all' ? 'Showing all animals' : `Showing ${f} feed`;
-    if (focus) document.getElementById(`${f}-products`)?.focus();
-  }
-  chips.forEach((c) => c.addEventListener('click', () => apply(c.dataset.filter || 'all')));
-  function fromHash() {
-    const h = location.hash.slice(1).replace('-products', '');
-    if (ids.includes(h)) apply(h, location.hash.endsWith('-products'));
-  }
-  window.addEventListener('hashchange', fromHash);
-  fromHash();
-</script>

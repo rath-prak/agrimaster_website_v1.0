@@ -12,7 +12,7 @@ export interface RawTile {
 export const rawMaterials = {
   image: 'corn-hero.jpg',
   imageAlt: 'Golden corn kernels being loaded into a storage pile',
-  headline: ['Supporting Local Agriculture.', 'International Standards.'],
+  headline: ['Supporting Local Agriculture.', 'Quality Ingredients.'],
   headlineMuted: 'Quality Animal Nutrition.',
   pill: 'RAW MATERIALS',
   heading: 'Quality animal nutrition starts with high',
@@ -31,8 +31,8 @@ export const rawMaterials = {
     {
       kind: 'text',
       tone: 'lime',
-      title: 'High quality International suppliers',
-      body: 'We source high-quality raw materials from international suppliers, primarily in the United States, to complement local ingredients and support our animal nutrition formulations.',
+      title: 'Selected International Ingredients',
+      body: 'When needed, we import selected high-quality ingredients from international suppliers, chosen for consistent quality, to complement local raw materials.',
     },
   ] as RawTile[],
 };
