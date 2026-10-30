@@ -52,9 +52,18 @@ const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory anal
       </div>
     </section>
     <section class="wrap section pt0" aria-labelledby="cats-h">
-      <div class="center">
-        <span class="section-heading">Animal Feed</span>
-        <h2 id="cats-h" class="second-lead">Feed for Every Stage</h2>
+      <div class="fes-head">
+        <div class="fes-left">
+          <span class="section-heading">Animal Feed</span>
+          <h2 id="cats-h" class="fes-h">Feed for<br />Every Stage</h2>
+        </div>
+        <div class="fes-right">
+          <p>Complete feeds and selected concentrates for swine, poultry, ruminants and freshwater aquaculture.</p>
+          <div class="fes-btns">
+            <a class="btn btn-primary" href={`${base}products`}>View Products</a>
+            <a class="btn btn-outline fes-out" href={`${base}contact`}>Contact Us</a>
+          </div>
+        </div>
       </div>
       <div class="grid4 species">
         {
@@ -64,7 +73,6 @@ const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory anal
           })
         }
       </div>
-      <div class="species-cta center"><a class="btn btn-primary" href={`${base}products`}>View Products</a></div>
     </section>
     <section class="wrap section pt0" aria-labelledby="why-h">
       <div class="center">

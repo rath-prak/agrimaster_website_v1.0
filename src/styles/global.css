@@ -359,3 +359,14 @@ h1,h2,h3,.second-lead,.hero-h1-only{letter-spacing:-.02em}
 .card.pc.pc-photo p{color:#d6d6d6;font-size:14px;font-weight:400;margin:0;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media(max-width:760px){.species.grid4{grid-template-columns:repeat(2,1fr);gap:12px}.card.pc.pc-photo .pc-body{padding:12px 14px}.card.pc.pc-photo h3{font-size:18px}.card.pc.pc-photo p{font-size:13px}}
 .card-grid.species.grid4,.species.grid4{margin-top:32px!important}.species-cta.center{display:flex;justify-content:center}
+
+/* f3e: species header + short cards */
+.fes-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:32px}
+.fes-left .section-heading{margin-bottom:14px}
+.fes-h{font-size:clamp(36px,4vw,54px);font-weight:400;line-height:1.05;letter-spacing:-.03em;margin:0}
+.fes-right{max-width:420px}.fes-right p{color:var(--mut);margin:0 0 18px;line-height:1.55}
+.fes-btns{display:flex;flex-wrap:wrap;gap:12px}.fes-btns .btn{margin:0}
+.card-grid.species.grid4,.species.grid4{margin-top:0!important}
+.card.pc.pc-photo a{aspect-ratio:4/3;max-height:260px;width:100%}
+@media(max-width:760px){.fes-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:20px}.card.pc.pc-photo a{aspect-ratio:1/1;max-height:180px}}
+.fes-h{text-transform:none}
