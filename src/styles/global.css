@@ -394,3 +394,15 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
   linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 26%,rgba(0,0,0,.12) 45%,transparent 58%),
   var(--hero-img) 62% 50%/cover}}
 
+/* f3n: Why Agri Master intro strip between hero and story panel */
+.why-strip{padding-top:var(--s4);padding-bottom:var(--s5);position:relative;z-index:2}
+.why-strip .eyebrow{margin:0 0 var(--s3)}
+.why-strip-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.why-strip-grid li{min-width:0;background:#fff;border:1px solid #e6eae3;border-radius:var(--radius);padding:var(--s3);box-shadow:0 8px 24px rgba(20,32,26,.08)}
+.why-strip-icon{display:block;width:32px;height:32px;color:var(--green);margin-bottom:var(--s2)}
+.why-strip-grid h3{margin:0 0 var(--s1);font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink)}
+.why-strip-grid p{margin:0;color:var(--mut);font-size:.95rem;line-height:1.5}
+@media(max-width:760px){
+  .why-strip{padding-top:var(--s3);padding-bottom:var(--s4)}
+  .why-strip-grid{grid-template-columns:1fr;gap:var(--s2)}
+}
