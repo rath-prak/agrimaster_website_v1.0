@@ -16,6 +16,10 @@ public/assets/img/hero-paddy-battambang.webp
   https://commons.wikimedia.org/wiki/File:Paddy_fields_near_Battambang.jpg
   Licence: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
   Cropped (bottom 20%) and resized to 2400px webp.
+
+public/assets/img/hero-swine-feeding.webp
+  Home hero (from features-3 / f3h). Replaced hero-paddy-battambang.webp.
+  Source photo provided for the site; credit to be added if the photographer/licence is confirmed.
 public/assets/img/stock-swine.webp
   "Pig farm Vampula 1" by kallerna
   https://commons.wikimedia.org/wiki/File:Pig_farm_Vampula_1.jpg

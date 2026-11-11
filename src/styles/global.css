@@ -259,6 +259,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .hero.full .hero-content{padding-left:max(var(--pad),calc((100vw - var(--container))/2 + var(--pad)));padding-right:max(var(--pad),calc((100vw - var(--container))/2 + var(--pad)))}
 /* features-2 home */
 .hero.full .hero-img{background:linear-gradient(180deg,rgba(10,25,15,.15) 20%,rgba(10,25,15,.8) 100%),var(--hero-img) center 60%/cover}
+/* f3h: home swine hero — prefer the trough and foreground pigs */
+.p-index .hero.full .hero-img{background:linear-gradient(180deg,rgba(10,25,15,.2) 18%,rgba(10,25,15,.82) 100%),var(--hero-img) 62% 50%/cover}
 .hero.full .hero-content h1.hero-h1-only{margin-bottom:var(--s2);max-width:1000px}
 .hero-sub{color:#eef3ea;font-size:clamp(1rem,1.3vw,1.2rem);max-width:640px;margin:0 0 var(--s3)}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px}.btn-row.center{justify-content:center}
