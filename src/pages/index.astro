@@ -69,6 +69,12 @@ const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory anal
         </li>
       </ul>
     </section>
+    <section class="section center wrap pt0 home-about">
+      <span class="section-heading">Cambodian Agriculture</span>
+      <h2 class="second-lead">Supporting Cambodia's Agricultural Future</h2>
+      <p class="rm-small">We prioritise suitable locally grown raw materials when available and source quality ingredients internationally when needed. Together with local manufacturing and industry cooperation, this supports our long-term commitment to Cambodian agriculture.</p>
+      <a class="btn btn-primary" href={`${base}about`}>About Agri Master</a>
+    </section>
     <section class="wrap section home-story">
       <div class="story" style={`--story-img:url(${base}assets/img/feedmill-aerial.webp)`}>
         <div class="story-text">
@@ -111,12 +117,6 @@ const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory anal
         {why.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}
       </ul>
       <div class="species-cta center"><a class="btn btn-primary" href={`${base}about#quality`}>Learn About Our Quality</a></div>
-    </section>
-    <section class="section center wrap pt0 home-about">
-      <span class="section-heading">Cambodian Agriculture</span>
-      <h2 class="second-lead">Supporting Cambodia's Agricultural Future</h2>
-      <p class="rm-small">We prioritise suitable locally grown raw materials when available and source quality ingredients internationally when needed. Together with local manufacturing and industry cooperation, this supports our long-term commitment to Cambodian agriculture.</p>
-      <a class="btn btn-primary" href={`${base}about`}>About Agri Master</a>
     </section>
     <RawMaterials />
     <section class="wrap section pt0">
