@@ -386,5 +386,3 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 /* f3m: lift home hero copy ~15% of hero height */
 .p-index .hero.full .hero-content{padding-bottom:calc(clamp(40px,7vh,96px) + (100svh - var(--hh)) * 0.15)}
 
-/* 60px nowrap at 1440; scale just enough below that so one line still fits at 1024 */
-@media(min-width:1024px){.p-index .hero.full .hero-content h1.hero-h1-only{font-size:clamp(52px,4.17vw,60px);white-space:nowrap}}
