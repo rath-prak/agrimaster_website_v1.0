@@ -378,6 +378,13 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 /* f3k: home hero type + Inter */
 .p-index .hero.full .hero-content h1.hero-h1-only{text-transform:none;font-weight:500;font-size:clamp(28px,7vw,60px);line-height:1.12;letter-spacing:-.02em;max-width:none;margin-bottom:var(--s2)}
 .p-index .hero.full .hero-content h1.hero-h1-only .hero-em{font-weight:700}
-.p-index .hero-sub{font-size:clamp(16px,2.4vw,26px);line-height:1.4;max-width:42em;margin:0 0 var(--s3);font-weight:400}
+.p-index .hero-sub{font-size:clamp(16px,2.4vw,26px);line-height:1.4;max-width:none;margin:0 0 var(--s3);font-weight:400}
+.p-index .hero-sub-br{display:none}
+.p-index .hero-badge{display:block;height:34px;width:auto;margin-top:2px}
+@media(min-width:1024px){.p-index .hero-sub{font-size:26px}.p-index .hero-sub-br{display:inline}}
+@media(max-width:760px){.p-index .hero-badge{height:28px}}
+/* f3m: lift home hero copy ~15% of hero height */
+.p-index .hero.full .hero-content{padding-bottom:calc(clamp(40px,7vh,96px) + (100svh - var(--hh)) * 0.15)}
+
 /* 60px nowrap at 1440; scale just enough below that so one line still fits at 1024 */
 @media(min-width:1024px){.p-index .hero.full .hero-content h1.hero-h1-only{font-size:clamp(52px,4.17vw,60px);white-space:nowrap}}
