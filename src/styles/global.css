@@ -386,11 +386,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 /* net ~10% above original (was lifted 15%, now moved down 5%) */
 .p-index .hero.full .hero-content{padding-bottom:calc(clamp(40px,7vh,96px) + (100svh - var(--hh)) * 0.10)}
 .p-index .hero.full .hero-img{background:
-  linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.48) 34%,rgba(0,0,0,.14) 58%,rgba(0,0,0,0) 80%),
-  linear-gradient(180deg,rgba(0,0,0,.08) 18%,rgba(0,0,0,.22) 48%,rgba(0,0,0,.62) 100%),
+  linear-gradient(to top right,rgba(0,0,0,.7) 0%,rgba(0,0,0,.45) 30%,rgba(0,0,0,.12) 55%,transparent 75%),
   var(--hero-img) 62% 50%/cover}
 @media(max-width:760px){.p-index .hero.full .hero-img{background:
-  linear-gradient(180deg,rgba(0,0,0,.1) 28%,rgba(0,0,0,.42) 58%,rgba(0,0,0,.78) 100%),
-  linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.1) 55%,rgba(0,0,0,0) 85%),
+  linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.4) 22%,rgba(0,0,0,.12) 40%,transparent 55%),
   var(--hero-img) 62% 50%/cover}}
 
