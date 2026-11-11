@@ -296,6 +296,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
 .story-stats dt{font-size:clamp(2rem,3.6vw,3.2rem);font-weight:800;line-height:1;color:#fff}
 .story-stats dd{margin:8px 0 0;font-size:.95rem;color:#dfe8da;max-width:240px}
 @media(max-width:760px){.story{min-height:640px;background:linear-gradient(0deg,rgba(8,22,12,.88) 0%,rgba(8,22,12,.55) 60%,rgba(8,22,12,.35) 100%),var(--story-img) center/cover}}
+.home-story .story{min-height:min(82vh,780px)}
+@media(max-width:760px){.home-story .story{min-height:720px}}
+
 /* features-2c: About / Animal Feed editorial */
 .ed-split{gap:clamp(32px,6vw,96px)}
 .ed-split .section-heading{margin-bottom:var(--s3)}
