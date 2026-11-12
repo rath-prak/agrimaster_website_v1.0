@@ -15,11 +15,6 @@ const speciesCards: Record<string, { title: string; text: string; color: string;
   ruminant: { title: 'Ruminants', text: 'Feed for beef cattle, dairy cattle, sheep and goats.', color: '#699831', ink: '#1a1a1a' },
   aquaculture: { title: 'Aquaculture', text: 'Floating feeds for freshwater fish, with selected products for frogs.', color: '#FBAF3B', ink: '#1a1a1a' },
 };
-const why = [
-  ['Quality ingredients', 'Carefully selected materials and dependable sourcing.'],
-  ['Controlled manufacturing', 'Production monitoring, laboratory analysis and finished-feed checks.'],
-  ['Practical expertise', 'Feeding information and technical knowledge relevant to Cambodian producers.'],
-];
 const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory analysis', 'Finished-feed checks'];
 ---
 
@@ -108,15 +103,8 @@ const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory anal
         }
       </div>
     </section>
-    <section class="wrap section pt0" aria-labelledby="why-h">
-      <div class="center">
-        <span class="section-heading">Why Agri Master</span>
-        <h2 id="why-h" class="second-lead">Built on Quality, Knowledge <span>and Cambodian Commitment</span></h2>
-      </div>
-      <ul class="why">
-        {why.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}
-      </ul>
-      <div class="species-cta center"><a class="btn btn-primary" href={`${base}about#quality`}>Learn About Our Quality</a></div>
+    <section class="wrap section pt0 center" aria-labelledby="partners-h">
+      <h2 id="partners-h" class="section-heading">Global Partners</h2>
     </section>
     <RawMaterials />
     <section class="wrap section pt0">
