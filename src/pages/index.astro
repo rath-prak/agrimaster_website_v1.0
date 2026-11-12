@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import RawMaterials from '../components/RawMaterials.astro';
 import AvailabilityMap from '../components/AvailabilityMap.astro';
+import CoreValues from '../components/CoreValues.astro';
 import { getProducts } from '../lib/products';
 
 const products = await getProducts();
@@ -80,6 +81,7 @@ const qc = ['Raw-material inspection', 'Production monitoring', 'Laboratory anal
         </div>
       </div>
     </section>
+    <CoreValues />
     <section class="wrap section pt0" aria-labelledby="cats-h">
       <div class="fes-head">
         <div class="fes-left">

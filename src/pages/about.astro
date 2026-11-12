@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CoreValues from '../components/CoreValues.astro';
 
 const base = import.meta.env.BASE_URL;
 const journey = [
@@ -45,6 +46,8 @@ const qcSteps = [
         </div>
       </div>
     </section>
+
+    <CoreValues />
 
     <section class="wrap section pt0 journey-sec" aria-labelledby="journey-h">
       <h2 id="journey-h" class="section-heading">Our Journey</h2>

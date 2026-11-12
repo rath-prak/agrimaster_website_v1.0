@@ -1,0 +1,49 @@
+---
+const values = [
+  {
+    n: '01',
+    title: 'Quality',
+    text: 'We are committed to using high-quality ingredients, maintaining consistent manufacturing standards and continually improving our products and processes to deliver dependable animal nutrition.',
+  },
+  {
+    n: '02',
+    title: 'Performance',
+    text: 'We develop nutritionally balanced feeds that support animal health, healthy growth and productivity, helping farmers achieve better production outcomes.',
+  },
+  {
+    n: '03',
+    title: 'Partnership',
+    text: 'We build lasting relationships with farmers, customers and industry partners through mutual trust, practical support and knowledge-sharing to support their long-term success.',
+  },
+  {
+    n: '04',
+    title: 'Expertise',
+    text: 'We combine animal nutrition knowledge, technical experience and continuous learning to develop effective feed formulations and provide practical guidance to farmers.',
+  },
+  {
+    n: '05',
+    title: 'Cambodian Commitment',
+    text: "As a Cambodian-owned company, we support local agriculture through domestic manufacturing, sourcing locally produced raw materials where available, and contributing to the long-term development of Cambodia's agricultural sector.",
+  },
+] as const;
+---
+
+<section class="wrap section pt0 values-sec" aria-labelledby="values-h">
+  <div class="center">
+    <span class="section-heading">Our Values</span>
+    <h2 id="values-h" class="second-lead">Our Five Core Values</h2>
+  </div>
+  <ol class="values-grid">
+    {
+      values.map((v) => (
+        <li>
+          <span class="values-num" aria-hidden="true">
+            {v.n}
+          </span>
+          <h3>{v.title}</h3>
+          <p>{v.text}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>

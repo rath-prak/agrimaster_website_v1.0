@@ -400,3 +400,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-co
   .why-strip{padding-top:var(--s3);padding-bottom:var(--s4)}
   .why-strip-grid{grid-template-columns:1fr;gap:var(--s2)}
 }
+
+/* f3x: five core values */
+.values-sec .second-lead{margin:0 auto var(--s4)}
+.values-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s3)}
+.values-grid li{grid-column:span 2;background:#f3f5f1;border-radius:var(--radius);padding:var(--s3);border-top:4px solid var(--lime);min-width:0}
+.values-grid li:nth-child(4){grid-column:2 / span 2}
+.values-grid li:nth-child(5){grid-column:4 / span 2}
+.values-num{display:block;color:var(--green);font-weight:800;font-size:clamp(1.6rem,2.4vw,2.1rem);line-height:1;letter-spacing:-.03em;margin-bottom:var(--s2);font-variant-numeric:tabular-nums}
+.values-grid h3{margin:0 0 var(--s1);font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink)}
+.values-grid p{margin:0;color:var(--mut);font-size:.95rem;line-height:1.55}
+@media(max-width:1024px){
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .values-grid li,.values-grid li:nth-child(4){grid-column:auto}
+  .values-grid li:nth-child(5){grid-column:1 / -1;max-width:calc(50% - var(--s3) / 2);justify-self:center}
+}
+@media(max-width:760px){
+  .values-grid{grid-template-columns:1fr}
+  .values-grid li:nth-child(5){grid-column:auto;max-width:none}
+}
