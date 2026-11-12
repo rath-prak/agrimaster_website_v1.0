@@ -1,4 +1,12 @@
 ---
+interface Props {
+  variant?: 'cards' | 'timeline';
+}
+
+const { variant = 'cards' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const isTimeline = variant === 'timeline';
+
 const values = [
   {
     n: '01',
@@ -22,28 +30,48 @@ const values = [
   },
   {
     n: '05',
-    title: 'Cambodian Commitment',
+    title: isTimeline ? 'Local Commitment' : 'Cambodian Commitment',
     text: "As a Cambodian-owned company, we support local agriculture through domestic manufacturing, sourcing locally produced raw materials where available, and contributing to the long-term development of Cambodia's agricultural sector.",
   },
 ] as const;
 ---
 
-<section class="wrap section pt0 values-sec" aria-labelledby="values-h">
+<section class="wrap section pt0 values-sec" id="values" aria-labelledby="values-h">
   <div class="center">
     <span class="section-heading">Our Values</span>
     <h2 id="values-h" class="second-lead">Our Five Core Values</h2>
   </div>
-  <ol class="values-grid">
-    {
-      values.map((v) => (
-        <li>
-          <span class="values-num" aria-hidden="true">
-            {v.n}
-          </span>
-          <h3>{v.title}</h3>
-          <p>{v.text}</p>
-        </li>
-      ))
-    }
-  </ol>
+  {
+    isTimeline ? (
+      <>
+        <ol class="values-timeline">
+          {values.map((v, i) => (
+            <li class:list={[{ 'is-active': i === 0 }]}>
+              <span class="values-tl-num" aria-hidden="true">
+                {v.n}
+              </span>
+              <h3 class="values-tl-dot">{v.title}</h3>
+            </li>
+          ))}
+        </ol>
+        <div class="center values-tl-cta">
+          <a class="btn btn-primary" href={`${base}about#values`}>
+            Learn more
+          </a>
+        </div>
+      </>
+    ) : (
+      <ol class="values-grid">
+        {values.map((v) => (
+          <li>
+            <span class="values-num" aria-hidden="true">
+              {v.n}
+            </span>
+            <h3>{v.title}</h3>
+            <p>{v.text}</p>
+          </li>
+        ))}
+      </ol>
+    )
+  }
 </section>
